@@ -1,0 +1,983 @@
+[
+  {
+    "id": "hia-health-insights-agent",
+    "name": "HIA (Health Insights Agent)",
+    "description": "Analyses medical reports and provides health insights",
+    "industry": "Healthcare",
+    "category": "Healthcare",
+    "framework": null,
+    "url": "https://github.com/harshhh28/hia.git"
+  },
+  {
+    "id": "ai-health-assistant",
+    "name": "AI Health Assistant",
+    "description": "Diagnoses and monitors diseases using patient data",
+    "industry": "Healthcare",
+    "category": "Healthcare",
+    "framework": null,
+    "url": "https://github.com/ahmadvh/AI-Agents-for-Medical-Diagnostics.git"
+  },
+  {
+    "id": "automated-trading-bot",
+    "name": "Automated Trading Bot",
+    "description": "Automates stock trading with real-time market analysis",
+    "industry": "Finance",
+    "category": "Finance",
+    "framework": null,
+    "url": "https://github.com/MingyuJ666/Stockagent.git"
+  },
+  {
+    "id": "agent-wallet-sdk",
+    "name": "Agent Wallet SDK",
+    "description": "Non-custodial smart contract wallet SDK for AI agents with enforced spend limits",
+    "industry": "Finance",
+    "category": "Finance",
+    "framework": null,
+    "url": "https://github.com/up2itnow0822/agent-wallet-sdk"
+  },
+  {
+    "id": "virtual-ai-tutor",
+    "name": "Virtual AI Tutor",
+    "description": "Provides personalized education tailored to users",
+    "industry": "Education",
+    "category": "Education",
+    "framework": null,
+    "url": "https://github.com/hqanhh/EduGPT.git"
+  },
+  {
+    "id": "24-7-ai-chatbot",
+    "name": "24/7 AI Chatbot",
+    "description": "Handles customer queries around the clock",
+    "industry": "Customer Service",
+    "category": "Customer Service",
+    "framework": null,
+    "url": "https://github.com/NirDiamant/GenAI_Agents/blob/main/all_agents_tutorials/customer_support_agent_langgraph.ipynb"
+  },
+  {
+    "id": "product-recommendation-agent",
+    "name": "Product Recommendation Agent",
+    "description": "Suggests products based on user preferences and history",
+    "industry": "Retail",
+    "category": "Retail & E-commerce",
+    "framework": null,
+    "url": "https://github.com/microsoft/RecAI"
+  },
+  {
+    "id": "self-driving-delivery-agent",
+    "name": "Self-Driving Delivery Agent",
+    "description": "Optimizes routes and autonomously delivers packages",
+    "industry": "Transportation",
+    "category": "Logistics & Mobility",
+    "framework": null,
+    "url": "https://github.com/sled-group/driVLMe"
+  },
+  {
+    "id": "factory-process-monitoring-agent",
+    "name": "Factory Process Monitoring Agent",
+    "description": "Monitors production lines and ensures quality control",
+    "industry": "Manufacturing",
+    "category": "Industrial & Energy",
+    "framework": null,
+    "url": "https://github.com/yuchenxia/llm4ias"
+  },
+  {
+    "id": "property-pricing-agent",
+    "name": "Property Pricing Agent",
+    "description": "Analyzes market trends to determine property prices",
+    "industry": "Real Estate",
+    "category": "Real Estate",
+    "framework": null,
+    "url": "https://github.com/AleksNeStu/ai-real-estate-assistant"
+  },
+  {
+    "id": "smart-farming-assistant",
+    "name": "Smart Farming Assistant",
+    "description": "Provides insights on crop health and yield predictions",
+    "industry": "Agriculture",
+    "category": "Industrial & Energy",
+    "framework": null,
+    "url": "https://github.com/mohammed97ashraf/LLM_Agri_Bot"
+  },
+  {
+    "id": "energy-demand-forecasting-agent",
+    "name": "Energy Demand Forecasting Agent",
+    "description": "Predicts energy usage to optimize grid management",
+    "industry": "Energy",
+    "category": "Industrial & Energy",
+    "framework": null,
+    "url": "https://github.com/yecchen/MIRAI"
+  },
+  {
+    "id": "content-personalization-agent",
+    "name": "Content Personalization Agent",
+    "description": "Recommends personalized media based on preferences",
+    "industry": "Entertainment",
+    "category": "Media & Entertainment",
+    "framework": null,
+    "url": "https://github.com/crosleythomas/MirrorGPT"
+  },
+  {
+    "id": "legal-document-review-assistant",
+    "name": "Legal Document Review Assistant",
+    "description": "Automates document review and highlights key clauses",
+    "industry": "Legal",
+    "category": "Legal",
+    "framework": null,
+    "url": "https://github.com/firica/legalai"
+  },
+  {
+    "id": "recruitment-recommendation-agent",
+    "name": "Recruitment Recommendation Agent",
+    "description": "Suggests best-fit candidates for job openings",
+    "industry": "Human Resources",
+    "category": "HR & Recruitment",
+    "framework": null,
+    "url": "https://github.com/sentient-engineering/jobber"
+  },
+  {
+    "id": "virtual-travel-assistant",
+    "name": "Virtual Travel Assistant",
+    "description": "Plans travel itineraries based on preferences",
+    "industry": "Hospitality",
+    "category": "Travel & Hospitality",
+    "framework": null,
+    "url": "https://github.com/nirbar1985/ai-travel-agent"
+  },
+  {
+    "id": "ai-game-companion-agent",
+    "name": "AI Game Companion Agent",
+    "description": "Enhances player experience with real-time assistance",
+    "industry": "Gaming",
+    "category": "Media & Entertainment",
+    "framework": null,
+    "url": "https://github.com/onjas-buidl/LLM-agent-game"
+  },
+  {
+    "id": "real-time-threat-detection-agent",
+    "name": "Real-Time Threat Detection Agent",
+    "description": "Identifies potential threats and mitigates attacks",
+    "industry": "Cybersecurity",
+    "category": "Cybersecurity",
+    "framework": null,
+    "url": "https://github.com/NVISOsecurity/cyber-security-llm-agents"
+  },
+  {
+    "id": "e-commerce-personal-shopper-agent",
+    "name": "E-commerce Personal Shopper Agent",
+    "description": "Helps customers find products they'll love",
+    "industry": "E-commerce",
+    "category": "Retail & E-commerce",
+    "framework": null,
+    "url": "https://github.com/Hoanganhvu123/ShoppingGPT"
+  },
+  {
+    "id": "logistics-optimization-agent",
+    "name": "Logistics Optimization Agent",
+    "description": "Plans efficient delivery routes and manages inventory",
+    "industry": "Supply Chain",
+    "category": "Logistics & Mobility",
+    "framework": null,
+    "url": "https://github.com/microsoft/OptiGuide"
+  },
+  {
+    "id": "vibe-hacking-agent",
+    "name": "Vibe Hacking Agent",
+    "description": "Autonomous Multi-Agent Based Red Team Testing Service",
+    "industry": "Cybersecurity",
+    "category": "Cybersecurity",
+    "framework": null,
+    "url": "https://github.com/PurpleAILAB/Decepticon"
+  },
+  {
+    "id": "citadel",
+    "name": "Citadel",
+    "description": "Orchestrates Claude Code agent fleets with lifecycle hooks, skills, campaign management, and postmortem-driven architecture",
+    "industry": "Software Development",
+    "category": "Software & Data",
+    "framework": null,
+    "url": "https://github.com/SethGammon/Citadel"
+  },
+  {
+    "id": "medisuite-ai-agent",
+    "name": "MediSuite-AI-Agent",
+    "description": "Automates hospital / insurance claiming workflow",
+    "industry": "Health Insurance",
+    "category": "Healthcare",
+    "framework": null,
+    "url": "https://github.com/ahmedmansour5/MediSuite-Ai-Agent"
+  },
+  {
+    "id": "lina-egyptian-medical-chatbot",
+    "name": "Lina Egyptian Medical Chatbot",
+    "description": "Egyptian medical assistant chatbot",
+    "industry": "Healthcare",
+    "category": "Healthcare",
+    "framework": null,
+    "url": "https://github.com/dina-khalid/Lina-Egyptian-Medical-Chatbot"
+  },
+  {
+    "id": "email-auto-responder-flow",
+    "name": "Email Auto Responder Flow",
+    "description": "Automates email responses based on predefined criteria",
+    "industry": "Communication",
+    "category": "Agents & Workflows",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/flows/email_auto_responder_flow"
+  },
+  {
+    "id": "meeting-assistant-flow",
+    "name": "Meeting Assistant Flow",
+    "description": "Organizes meetings, scheduling and agenda preparation",
+    "industry": "Productivity",
+    "category": "Agents & Workflows",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/flows/meeting_assistant_flow"
+  },
+  {
+    "id": "self-evaluation-loop-flow",
+    "name": "Self Evaluation Loop Flow",
+    "description": "Facilitates self-assessment for performance reviews",
+    "industry": "Human Resources",
+    "category": "HR & Recruitment",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/flows/self_evaluation_loop_flow"
+  },
+  {
+    "id": "lead-score-flow",
+    "name": "Lead Score Flow",
+    "description": "Evaluates and scores potential leads to prioritize outreach",
+    "industry": "Sales",
+    "category": "Sales & Marketing",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/flows/lead-score-flow"
+  },
+  {
+    "id": "marketing-strategy-generator",
+    "name": "Marketing Strategy Generator",
+    "description": "Develops marketing strategies by analyzing market trends",
+    "industry": "Marketing",
+    "category": "Sales & Marketing",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/marketing_strategy"
+  },
+  {
+    "id": "job-posting-generator",
+    "name": "Job Posting Generator",
+    "description": "Creates job postings by analyzing job requirements",
+    "industry": "Recruitment",
+    "category": "HR & Recruitment",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/job-posting"
+  },
+  {
+    "id": "recruitment-workflow",
+    "name": "Recruitment Workflow",
+    "description": "Streamlines recruitment by automating hiring tasks",
+    "industry": "Recruitment",
+    "category": "HR & Recruitment",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/recruitment"
+  },
+  {
+    "id": "match-profile-to-positions",
+    "name": "Match Profile to Positions",
+    "description": "Matches candidate profiles to suitable job positions",
+    "industry": "Recruitment",
+    "category": "HR & Recruitment",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/match_profile_to_positions"
+  },
+  {
+    "id": "instagram-post-generator",
+    "name": "Instagram Post Generator",
+    "description": "Generates and schedules Instagram posts automatically",
+    "industry": "Social Media",
+    "category": "Media & Entertainment",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/instagram_post"
+  },
+  {
+    "id": "landing-page-generator",
+    "name": "Landing Page Generator",
+    "description": "Automates creation of landing pages for websites",
+    "industry": "Web Development",
+    "category": "Software & Data",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/landing_page_generator"
+  },
+  {
+    "id": "game-builder-crew",
+    "name": "Game Builder Crew",
+    "description": "Assists in game development by automating aspects of creation",
+    "industry": "Game Development",
+    "category": "Media & Entertainment",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/game-builder-crew"
+  },
+  {
+    "id": "stock-analysis-tool",
+    "name": "Stock Analysis Tool",
+    "description": "Provides tools for analyzing stock market data",
+    "industry": "Finance",
+    "category": "Finance",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/stock_analysis"
+  },
+  {
+    "id": "trip-planner",
+    "name": "Trip Planner",
+    "description": "Assists in planning trips with itineraries",
+    "industry": "Travel",
+    "category": "Travel & Hospitality",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/trip_planner"
+  },
+  {
+    "id": "surprise-trip-planner",
+    "name": "Surprise Trip Planner",
+    "description": "Plans surprise trips based on user preferences",
+    "industry": "Travel",
+    "category": "Travel & Hospitality",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/surprise_trip"
+  },
+  {
+    "id": "write-a-book-with-flows",
+    "name": "Write a Book with Flows",
+    "description": "Assists authors with structured writing workflows",
+    "industry": "Creative Writing",
+    "category": "Media & Entertainment",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/flows/write_a_book_with_flows"
+  },
+  {
+    "id": "screenplay-writer",
+    "name": "Screenplay Writer",
+    "description": "Aids in writing screenplays with templates and guidance",
+    "industry": "Creative Writing",
+    "category": "Media & Entertainment",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/screenplay_writer"
+  },
+  {
+    "id": "markdown-validator",
+    "name": "Markdown Validator",
+    "description": "Validates Markdown files for proper formatting",
+    "industry": "Documentation",
+    "category": "Software & Data",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/markdown_validator"
+  },
+  {
+    "id": "meta-quest-knowledge",
+    "name": "Meta Quest Knowledge",
+    "description": "Manages Meta Quest knowledge for information retrieval",
+    "industry": "Knowledge Management",
+    "category": "Research & Knowledge",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/meta_quest_knowledge"
+  },
+  {
+    "id": "nvidia-models-integration",
+    "name": "NVIDIA Models Integration",
+    "description": "Integrates NVIDIA AI models into workflows",
+    "industry": "AI Integration",
+    "category": "Agents & Workflows",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/integrations/nvidia_models"
+  },
+  {
+    "id": "prep-for-a-meeting",
+    "name": "Prep for a Meeting",
+    "description": "Prepares meeting materials and sets agendas",
+    "industry": "Productivity",
+    "category": "Agents & Workflows",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/prep-for-a-meeting"
+  },
+  {
+    "id": "starter-template",
+    "name": "Starter Template",
+    "description": "Starter template for new CrewAI projects",
+    "industry": "Development",
+    "category": "Software & Data",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/crews/starter_template"
+  },
+  {
+    "id": "crewai-langgraph-integration",
+    "name": "CrewAI + LangGraph Integration",
+    "description": "Integration between CrewAI and LangGraph",
+    "industry": "AI Integration",
+    "category": "Agents & Workflows",
+    "framework": "CrewAI",
+    "url": "https://github.com/crewAIInc/crewAI-examples/tree/main/integrations/CrewAI-LangGraph"
+  },
+  {
+    "id": "automated-task-solving-with-code-gen-execution-debugging",
+    "name": "Automated Task Solving with Code Gen, Execution & Debugging",
+    "description": "Demonstrates automated task-solving by generating, executing, and debugging code",
+    "industry": "Software Development",
+    "category": "Software & Data",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_auto_feedback_from_code_execution"
+  },
+  {
+    "id": "code-generation-and-q-a-with-retrieval-augmented-agents",
+    "name": "Code Generation and Q&A with Retrieval Augmented Agents",
+    "description": "Generates code and answers questions using retrieval-augmented methods",
+    "industry": "Software Development",
+    "category": "Software & Data",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_RetrieveChat"
+  },
+  {
+    "id": "code-generation-and-q-a-with-qdrant-based-retrieval",
+    "name": "Code Generation and Q&A with Qdrant-based Retrieval",
+    "description": "Utilizes Qdrant for enhanced retrieval-augmented agent performance",
+    "industry": "Software Development",
+    "category": "Software & Data",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_RetrieveChat_qdrant"
+  },
+  {
+    "id": "group-chat-3-members-1-manager",
+    "name": "Group Chat (3 members, 1 manager)",
+    "description": "Demonstrates group task-solving via multi-agent collaboration",
+    "industry": "Collaboration",
+    "category": "Agents & Workflows",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_groupchat"
+  },
+  {
+    "id": "data-visualization-by-group-chat",
+    "name": "Data Visualization by Group Chat",
+    "description": "Uses multi-agent collaboration to create data visualizations",
+    "industry": "Data Analysis",
+    "category": "Software & Data",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_groupchat_vis"
+  },
+  {
+    "id": "complex-task-solving-by-group-chat-6-members",
+    "name": "Complex Task Solving by Group Chat (6 members)",
+    "description": "Solves complex tasks collaboratively with a larger group",
+    "industry": "Collaboration",
+    "category": "Agents & Workflows",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_groupchat_research"
+  },
+  {
+    "id": "task-solving-with-coding-planning-agents",
+    "name": "Task Solving with Coding & Planning Agents",
+    "description": "Combines coding and planning agents for solving tasks",
+    "industry": "Planning & Dev",
+    "category": "Agents & Workflows",
+    "framework": "AutoGen",
+    "url": "https://github.com/microsoft/autogen/blob/0.2/notebook/agentchat_planning.ipynb"
+  },
+  {
+    "id": "task-solving-with-graph-transition-paths",
+    "name": "Task Solving with Graph Transition Paths",
+    "description": "Uses predefined transition paths in a graph for solving tasks",
+    "industry": "Collaboration",
+    "category": "Agents & Workflows",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/docs/notebooks/agentchat_groupchat_finite_state_machine"
+  },
+  {
+    "id": "societyofmindagent-inner-monologue",
+    "name": "SocietyOfMindAgent Inner-Monologue",
+    "description": "Simulates inner-monologue for problem-solving using group chats",
+    "industry": "Cognitive Sciences",
+    "category": "Education",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_society_of_mind"
+  },
+  {
+    "id": "group-chat-with-custom-speaker-selection",
+    "name": "Group Chat with Custom Speaker Selection",
+    "description": "Implements a custom function for speaker selection",
+    "industry": "Collaboration",
+    "category": "Agents & Workflows",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_groupchat_customized"
+  },
+  {
+    "id": "sequential-task-solving-single-initiating-agent",
+    "name": "Sequential Task-Solving (single initiating agent)",
+    "description": "Automates sequential task-solving with a single initiating agent",
+    "industry": "Workflow Automation",
+    "category": "Agents & Workflows",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_multi_task_chats"
+  },
+  {
+    "id": "async-sequential-task-solving",
+    "name": "Async Sequential Task-Solving",
+    "description": "Handles asynchronous task-solving in a sequence of chats",
+    "industry": "Workflow Automation",
+    "category": "Agents & Workflows",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_multi_task_async_chats"
+  },
+  {
+    "id": "sequential-chats-with-different-initiating-agents",
+    "name": "Sequential Chats with Different Initiating Agents",
+    "description": "Sequential task-solving with different agents initiating each chat",
+    "industry": "Workflow Automation",
+    "category": "Agents & Workflows",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchats_sequential_chats"
+  },
+  {
+    "id": "solving-complex-tasks-with-nested-chats",
+    "name": "Solving Complex Tasks with Nested Chats",
+    "description": "Uses nested chats to solve hierarchical and complex problems",
+    "industry": "Problem Solving",
+    "category": "Research & Knowledge",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_nestedchat"
+  },
+  {
+    "id": "sequence-of-nested-chats",
+    "name": "Sequence of Nested Chats",
+    "description": "Demonstrates sequential task-solving using nested chats",
+    "industry": "Problem Solving",
+    "category": "Research & Knowledge",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_nested_sequential_chats"
+  },
+  {
+    "id": "optiguide-supply-chain-with-nested-chats",
+    "name": "OptiGuide Supply Chain with Nested Chats",
+    "description": "Solves supply chain optimization using nested chats",
+    "industry": "Supply Chain",
+    "category": "Logistics & Mobility",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_nestedchat_optiguide"
+  },
+  {
+    "id": "conversational-chess-with-nested-chats",
+    "name": "Conversational Chess with Nested Chats",
+    "description": "Uses nested chats for playing conversational chess with tools",
+    "industry": "Gaming",
+    "category": "Media & Entertainment",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_nested_chats_chess"
+  },
+  {
+    "id": "web-search-solve-tasks-requiring-web-info",
+    "name": "Web Search: Solve Tasks Requiring Web Info",
+    "description": "Searches the web to gather information for completing tasks",
+    "industry": "Information Retrieval",
+    "category": "Research & Knowledge",
+    "framework": "AutoGen",
+    "url": "https://github.com/microsoft/autogen/blob/0.2/notebook/agentchat_web_info.ipynb"
+  },
+  {
+    "id": "use-provided-tools-as-functions",
+    "name": "Use Provided Tools as Functions",
+    "description": "Demonstrates how to use pre-provided tools as callable functions",
+    "industry": "Tool Integration",
+    "category": "Agents & Workflows",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_function_call_currency_calculator"
+  },
+  {
+    "id": "rag-group-chat",
+    "name": "RAG Group Chat",
+    "description": "Enables group chat with Retrieval Augmented Generation",
+    "industry": "Collaboration",
+    "category": "Agents & Workflows",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_groupchat_RAG"
+  },
+  {
+    "id": "agent-chat-with-whisper",
+    "name": "Agent Chat with Whisper",
+    "description": "AI agent for transcription and translation using Whisper",
+    "industry": "Audio Processing",
+    "category": "Media & Entertainment",
+    "framework": "AutoGen",
+    "url": "https://microsoft.github.io/autogen/0.2/docs/notebooks/agentchat_video_transcript_translate_with_whisper"
+  },
+  {
+    "id": "sql-natural-language-to-sql-query",
+    "name": "SQL: Natural Language to SQL Query",
+    "description": "Converts natural language inputs into SQL queries",
+    "industry": "Database Management",
+    "category": "Software & Data",
+    "framework": "AutoGen",
+    "url": "https://github.com/microsoft/autogen/blob/0.2/notebook/agentchat_sql_spider.ipynb"
+  },
+  {
+    "id": "multimodal-agent-with-dalle-and-gpt-4v",
+    "name": "Multimodal Agent with DALLE and GPT-4V",
+    "description": "Combines DALLE and GPT-4V for multimodal agent communication",
+    "industry": "Multimedia AI",
+    "category": "Media & Entertainment",
+    "framework": "AutoGen",
+    "url": "https://github.com/microsoft/autogen/blob/0.2/notebook/agentchat_dalle_and_gpt4v.ipynb"
+  },
+  {
+    "id": "multimodal-agent-with-llava",
+    "name": "Multimodal Agent with Llava",
+    "description": "Uses Llava for multimodal agent conversations",
+    "industry": "Image Processing",
+    "category": "Media & Entertainment",
+    "framework": "AutoGen",
+    "url": "https://github.com/microsoft/autogen/blob/0.2/notebook/agentchat_lmm_llava.ipynb"
+  },
+  {
+    "id": "multimodal-agent-with-gpt-4v",
+    "name": "Multimodal Agent with GPT-4V",
+    "description": "Leverages GPT-4V for visual and conversational interactions",
+    "industry": "Multimedia AI",
+    "category": "Media & Entertainment",
+    "framework": "AutoGen",
+    "url": "https://github.com/microsoft/autogen/blob/0.2/notebook/agentchat_lmm_gpt-4v.ipynb"
+  },
+  {
+    "id": "agenteval-multi-agent-assessment-system",
+    "name": "AgentEval: Multi-Agent Assessment System",
+    "description": "Evaluating LLM-based application utility",
+    "industry": "Performance Evaluation",
+    "category": "Agents & Workflows",
+    "framework": "AutoGen",
+    "url": "https://github.com/microsoft/autogen/blob/0.2/notebook/agenteval_cq_math.ipynb"
+  },
+  {
+    "id": "track-llm-calls-and-errors-using-agentops",
+    "name": "Track LLM Calls and Errors using AgentOps",
+    "description": "Monitors LLM interactions, tool usage, and errors",
+    "industry": "Monitoring & Analytics",
+    "category": "Software & Data",
+    "framework": "AutoGen",
+    "url": "https://github.com/microsoft/autogen/blob/0.2/notebook/agentchat_agentops.ipynb"
+  },
+  {
+    "id": "auto-build-multi-agent-system-with-agentbuilder",
+    "name": "Auto Build Multi-agent System with AgentBuilder",
+    "description": "Automatically builds multi-agent systems",
+    "industry": "AI Development",
+    "category": "Software & Data",
+    "framework": "AutoGen",
+    "url": "https://github.com/microsoft/autogen/blob/0.2/notebook/autobuild_basic.ipynb"
+  },
+  {
+    "id": "support-agent",
+    "name": "Support Agent",
+    "description": "Real-time answers, explanations, and code examples for Agno framework",
+    "industry": "AI Framework Support",
+    "category": "Agents & Workflows",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/agno_support_agent.py"
+  },
+  {
+    "id": "youtube-agent",
+    "name": "YouTube Agent",
+    "description": "Analyzes YouTube videos: summaries, timestamps, themes",
+    "industry": "Media & Content",
+    "category": "Media & Entertainment",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/youtube_agent.py"
+  },
+  {
+    "id": "finance-agent-thinking",
+    "name": "Finance Agent (Thinking)",
+    "description": "Real-time stock insights, analyst recommendations, financial deep-dives",
+    "industry": "Finance",
+    "category": "Finance",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/thinking_finance_agent.py"
+  },
+  {
+    "id": "study-partner",
+    "name": "Study Partner",
+    "description": "Finds resources, answers questions, creates study plans",
+    "industry": "Education",
+    "category": "Education",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/study_partner.py"
+  },
+  {
+    "id": "shopping-partner-agent",
+    "name": "Shopping Partner Agent",
+    "description": "Product recommender based on preferences from Amazon, Flipkart",
+    "industry": "E-commerce",
+    "category": "Retail & E-commerce",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/shopping_partner.py"
+  },
+  {
+    "id": "research-scholar-agent",
+    "name": "Research Scholar Agent",
+    "description": "Advanced academic searches, publication analysis, structured reports",
+    "industry": "Education / Research",
+    "category": "Education",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/research_agent_exa.py"
+  },
+  {
+    "id": "research-agent",
+    "name": "Research Agent",
+    "description": "Deep investigations, NYT-style reports",
+    "industry": "Media & Journalism",
+    "category": "Media & Entertainment",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/research_agent.py"
+  },
+  {
+    "id": "recipe-creator",
+    "name": "Recipe Creator",
+    "description": "Personalized recipes based on ingredients and preferences",
+    "industry": "Food & Culinary",
+    "category": "Media & Entertainment",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/recipe_creator.py"
+  },
+  {
+    "id": "financial-reasoning-agent",
+    "name": "Financial Reasoning Agent",
+    "description": "Claude 3.5 Sonnet-based stock analysis with Yahoo Finance data",
+    "industry": "Finance",
+    "category": "Finance",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/reasoning_finance_agent.py"
+  },
+  {
+    "id": "readme-generator-agent",
+    "name": "Readme Generator Agent",
+    "description": "Generates high-quality READMEs for GitHub repos",
+    "industry": "Software Dev",
+    "category": "Software & Data",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/readme_generator.py"
+  },
+  {
+    "id": "movie-recommendation-agent",
+    "name": "Movie Recommendation Agent",
+    "description": "Personalized movie recommendations using Exa and GPT-4o",
+    "industry": "Entertainment",
+    "category": "Media & Entertainment",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/movie_recommedation.py"
+  },
+  {
+    "id": "media-trend-analysis-agent",
+    "name": "Media Trend Analysis Agent",
+    "description": "Analyzes emerging trends and influencers from digital platforms",
+    "industry": "Media & News",
+    "category": "Media & Entertainment",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/media_trend_analysis_agent.py"
+  },
+  {
+    "id": "legal-document-analysis-agent",
+    "name": "Legal Document Analysis Agent",
+    "description": "Analyzes legal PDFs and provides insights using vector embeddings",
+    "industry": "Legal Tech",
+    "category": "Legal",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/legal_consultant.py"
+  },
+  {
+    "id": "deepknowledge",
+    "name": "DeepKnowledge",
+    "description": "Iterative search through knowledge base with deep reasoning",
+    "industry": "Research",
+    "category": "Research & Knowledge",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/deep_knowledge.py"
+  },
+  {
+    "id": "book-recommendation-agent",
+    "name": "Book Recommendation Agent",
+    "description": "Personalized book suggestions using literary data and reader preferences",
+    "industry": "Publishing & Media",
+    "category": "Media & Entertainment",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/book_recommendation.py"
+  },
+  {
+    "id": "mcp-airbnb-agent",
+    "name": "MCP Airbnb Agent",
+    "description": "Search Airbnb listings with MCP and Llama 4",
+    "industry": "Hospitality",
+    "category": "Travel & Hospitality",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/airbnb_mcp.py"
+  },
+  {
+    "id": "agno-assist-agent",
+    "name": "Agno Assist Agent",
+    "description": "GPT-4o agent for Agno framework Q&A with hybrid search",
+    "industry": "AI Framework",
+    "category": "Agents & Workflows",
+    "framework": "Agno",
+    "url": "https://github.com/agno-agi/agno/blob/main/cookbook/examples/agents/agno_assist.py"
+  },
+  {
+    "id": "chatbot-simulation-evaluation",
+    "name": "Chatbot Simulation Evaluation",
+    "description": "Simulate user interactions to evaluate chatbot performance",
+    "industry": "AI / QA",
+    "category": "Agents & Workflows",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/chatbot-simulation-evaluation/agent-simulation-evaluation.ipynb"
+  },
+  {
+    "id": "information-gathering-via-prompting",
+    "name": "Information Gathering via Prompting",
+    "description": "LangGraph workflow using prompting to gather information",
+    "industry": "Research",
+    "category": "Research & Knowledge",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/chatbots/information-gather-prompting.ipynb"
+  },
+  {
+    "id": "code-assistant-with-langgraph",
+    "name": "Code Assistant with LangGraph",
+    "description": "Resilient code assistant with error checking and iterative refinement",
+    "industry": "Software Development",
+    "category": "Software & Data",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/code_assistant/langgraph_code_assistant.ipynb"
+  },
+  {
+    "id": "customer-support-agent",
+    "name": "Customer Support Agent",
+    "description": "Graph-based agent for handling customer inquiries",
+    "industry": "Customer Support",
+    "category": "Customer Service",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/customer-support/customer-support.ipynb"
+  },
+  {
+    "id": "extraction-with-retries",
+    "name": "Extraction with Retries",
+    "description": "Retry mechanisms for robust data extraction",
+    "industry": "Data Extraction",
+    "category": "Software & Data",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/extraction/retries.ipynb"
+  },
+  {
+    "id": "multi-agent-workflow-supervisor",
+    "name": "Multi-Agent Workflow (Supervisor)",
+    "description": "Supervisor agent orchestrating multiple specialized agents",
+    "industry": "Workflow Orchestration",
+    "category": "Agents & Workflows",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/multi_agent/agent_supervisor.ipynb"
+  },
+  {
+    "id": "hierarchical-agent-teams",
+    "name": "Hierarchical Agent Teams",
+    "description": "Top-level supervisor delegates to specialized sub-agents",
+    "industry": "Workflow Orchestration",
+    "category": "Agents & Workflows",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/multi_agent/hierarchical_agent_teams.ipynb"
+  },
+  {
+    "id": "multi-agent-collaboration",
+    "name": "Multi-Agent Collaboration",
+    "description": "Multiple specialized agents working together on complex tasks",
+    "industry": "Workflow Orchestration",
+    "category": "Agents & Workflows",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/multi_agent/multi-agent-collaboration.ipynb"
+  },
+  {
+    "id": "plan-and-execute-agent",
+    "name": "Plan-and-Execute Agent",
+    "description": "Agent generates multi-step plan then executes sequentially",
+    "industry": "Workflow Orchestration",
+    "category": "Agents & Workflows",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/plan-and-execute/plan-and-execute.ipynb"
+  },
+  {
+    "id": "sql-agent",
+    "name": "SQL Agent",
+    "description": "Agent answers questions about SQL databases",
+    "industry": "Database Interaction",
+    "category": "Software & Data",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/sql-agent.ipynb"
+  },
+  {
+    "id": "reflection-agent",
+    "name": "Reflection Agent",
+    "description": "Agent critiques and revises its own outputs",
+    "industry": "Workflow Orchestration",
+    "category": "Agents & Workflows",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/reflection/reflection.ipynb"
+  },
+  {
+    "id": "reflexion-agent",
+    "name": "Reflexion Agent",
+    "description": "Agent reflects on actions for iterative improvement",
+    "industry": "Workflow Orchestration",
+    "category": "Agents & Workflows",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/reflexion/reflexion.ipynb"
+  },
+  {
+    "id": "adaptive-rag",
+    "name": "Adaptive RAG",
+    "description": "Dynamic retrieval adjusting based on query complexity",
+    "industry": "Information Retrieval",
+    "category": "Research & Knowledge",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/rag/langgraph_adaptive_rag.ipynb"
+  },
+  {
+    "id": "agentic-rag",
+    "name": "Agentic RAG",
+    "description": "Agent determines best retrieval strategy before generating response",
+    "industry": "Intelligent Agents",
+    "category": "Research & Knowledge",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/rag/langgraph_agentic_rag.ipynb"
+  },
+  {
+    "id": "corrective-rag-crag",
+    "name": "Corrective RAG (CRAG)",
+    "description": "Evaluates and refines retrieved documents before generation",
+    "industry": "Information Retrieval",
+    "category": "Research & Knowledge",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/rag/langgraph_crag.ipynb"
+  },
+  {
+    "id": "self-rag",
+    "name": "Self-RAG",
+    "description": "System reflects on responses and retrieves additional info if needed",
+    "industry": "Information Retrieval",
+    "category": "Research & Knowledge",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/rag/langgraph_self_rag.ipynb"
+  },
+  {
+    "id": "adaptive-rag-local",
+    "name": "Adaptive RAG (Local)",
+    "description": "Adaptive RAG with local models for offline use",
+    "industry": "Information Retrieval",
+    "category": "Research & Knowledge",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/rag/langgraph_adaptive_rag_local.ipynb"
+  },
+  {
+    "id": "self-rag-local",
+    "name": "Self-RAG (Local)",
+    "description": "Self-RAG using local models and data sources",
+    "industry": "Information Retrieval",
+    "category": "Research & Knowledge",
+    "framework": "LangGraph",
+    "url": "https://github.com/langchain-ai/langgraph/blob/main/docs/docs/tutorials/rag/langgraph_self_rag_local.ipynb"
+  }
+]

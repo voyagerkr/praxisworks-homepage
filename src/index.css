@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  background: #2fe0c8;
+  color: #06080d;
+}

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#2FE0C8" />
+      <stop offset="1" stop-color="#2C9CFF" />
+    </linearGradient>
+    <radialGradient id="glowTeal" cx="12%" cy="0%" r="70%">
+      <stop offset="0" stop-color="#2FE0C8" stop-opacity="0.20" />
+      <stop offset="1" stop-color="#2FE0C8" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="100%" cy="6%" r="70%">
+      <stop offset="0" stop-color="#2C9CFF" stop-opacity="0.20" />
+      <stop offset="1" stop-color="#2C9CFF" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#06080d" />
+  <rect width="1200" height="630" fill="url(#glowTeal)" />
+  <rect width="1200" height="630" fill="url(#glowBlue)" />
+  <rect x="0.5" y="0.5" width="1199" height="629" fill="none" stroke="#ffffff" stroke-opacity="0.07" />
+
+  <!-- brand mark + wordmark -->
+  <g transform="translate(80,82)">
+    <rect x="0" y="13" width="7" height="19" rx="3" fill="url(#accent)" />
+    <rect x="11" y="0" width="7" height="32" rx="3" fill="url(#accent)" />
+    <rect x="22" y="6" width="7" height="26" rx="3" fill="url(#accent)" />
+    <text x="44" y="26" fill="#ffffff" font-size="25" font-weight="700" letter-spacing="2">PRAXISWORKS</text>
+  </g>
+
+  <!-- headline -->
+  <text x="78" y="320" fill="#ffffff" font-size="92" font-weight="800" letter-spacing="-2">The applied atlas</text>
+  <text x="78" y="416" font-size="92" font-weight="800" letter-spacing="-2" fill="url(#accent)">of AI agents.</text>
+
+  <!-- subline -->
+  <text x="80" y="486" fill="#c4ccda" font-size="29" font-weight="500">100+ real-world AI agent projects — searchable by industry and framework.</text>
+
+  <!-- footer row -->
+  <text x="80" y="566" fill="#7e8aa0" font-size="23" font-weight="600" letter-spacing="1" font-family="'JetBrains Mono', monospace">CrewAI · AutoGen · Agno · LangGraph</text>
+  <text x="1120" y="566" text-anchor="end" fill="#2FE0C8" font-size="23" font-weight="600" font-family="'JetBrains Mono', monospace">dev.praxisworks.dev</text>
+</svg>

@@ -209,10 +209,10 @@ function App() {
           muted
           loop
           playsInline
-          poster="/hero-poster.jpg"
+          poster={`${import.meta.env.BASE_URL}hero-poster.jpg`}
           preload="metadata"
         >
-          <source src="/hero.mp4" type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}hero.mp4`} type="video/mp4" />
         </video>
         <div className="hero-veil" aria-hidden="true" />
         <div className="hero-grain" aria-hidden="true" />

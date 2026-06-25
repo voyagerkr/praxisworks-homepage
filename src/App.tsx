@@ -21,6 +21,45 @@ const CATEGORIES: string[] = Object.entries(
 const TOTAL = agents.length
 const TOTAL_CATEGORIES = CATEGORIES.length
 
+const CATEGORY_COUNTS: Record<string, number> = agents.reduce<Record<string, number>>((m, a) => {
+  m[a.category] = (m[a.category] ?? 0) + 1
+  return m
+}, {})
+const FRAMEWORK_COUNTS: Record<string, number> = agents.reduce<Record<string, number>>((m, a) => {
+  if (a.framework) m[a.framework] = (m[a.framework] ?? 0) + 1
+  return m
+}, {})
+
+// Domain filter folded into a few meta-groups for a tidier <select> (idea borrowed
+// from the curated "site-for-developers" list's collapsible category groups).
+const DOMAIN_GROUPS: { label: string; categories: string[] }[] = [
+  { label: 'AI & Engineering', categories: ['Agents & Workflows', 'Software & Data', 'Research & Knowledge'] },
+  { label: 'Business & Ops', categories: ['Finance', 'HR & Recruitment', 'Sales & Marketing', 'Customer Service', 'Legal'] },
+  { label: 'Consumer & Media', categories: ['Media & Entertainment', 'Retail & E-commerce', 'Travel & Hospitality', 'Education'] },
+  { label: 'Industry & Infrastructure', categories: ['Healthcare', 'Logistics & Mobility', 'Industrial & Energy', 'Real Estate', 'Cybersecurity'] },
+]
+const GROUPED_CATS = new Set(DOMAIN_GROUPS.flatMap((g) => g.categories))
+const UNGROUPED_CATS = CATEGORIES.filter((c) => !GROUPED_CATS.has(c))
+
+// One-click presets that drive search + filters together (like the list's Quick Start jumps).
+type Preset = { label: string; query?: string; framework?: Framework; category?: string }
+const PRESETS: Preset[] = [
+  { label: 'Multi-agent', query: 'multi-agent' },
+  { label: 'RAG', query: 'rag' },
+  { label: 'Code', query: 'code' },
+  { label: 'Customer support', query: 'customer' },
+  { label: 'Finance', category: 'Finance' },
+  { label: 'Healthcare', category: 'Healthcare' },
+]
+
+// Framework reference — official source per framework, plus how many examples live in the atlas.
+const FRAMEWORK_REF: { name: Framework; blurb: string; site: string; repo: string }[] = [
+  { name: 'CrewAI', blurb: 'Role-based multi-agent teams for business automation.', site: 'https://www.crewai.com', repo: 'https://github.com/crewAIInc/crewAI' },
+  { name: 'AutoGen', blurb: "Microsoft's multi-agent conversation framework.", site: 'https://microsoft.github.io/autogen', repo: 'https://github.com/microsoft/autogen' },
+  { name: 'LangGraph', blurb: 'Graph-based, stateful agent workflows.', site: 'https://www.langchain.com/langgraph', repo: 'https://github.com/langchain-ai/langgraph' },
+  { name: 'Agno', blurb: 'Lightweight, high-performance single agents.', site: 'https://agno.com', repo: 'https://github.com/agno-agi/agno' },
+]
+
 function useDebounced<T>(value: T, delay: number): T {
   const [debounced, setDebounced] = useState(value)
   useEffect(() => {
@@ -153,6 +192,17 @@ function App() {
     setFramework('all')
     setCategory('all')
   }
+  const applyPreset = (p: Preset) => {
+    setQuery(p.query ?? '')
+    setFramework(p.framework ?? 'all')
+    setCategory(p.category ?? 'all')
+  }
+  const selectFramework = (fw: Framework) => {
+    setFramework(fw)
+    setQuery('')
+    setCategory('all')
+    document.getElementById('atlas')?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   // ⌘K / Ctrl+K focuses the search.
   useEffect(() => {
@@ -248,8 +298,45 @@ function App() {
         </a>
       </section>
 
+      <section className="frameworks" id="frameworks">
+        <div className="section-head reveal">
+          <p className="eyebrow">FRAMEWORKS</p>
+          <h2>Built across the agent stack</h2>
+          <p className="section-sub">
+            Every example links to a working repo or notebook. Filter the atlas by framework — or jump
+            straight to the official source.
+          </p>
+        </div>
+        <div className="fw-grid">
+          {FRAMEWORK_REF.map((f) => (
+            <article className="fw-card reveal" data-fw={f.name} key={f.name}>
+              <div className="fw-card-head">
+                <span className="fw-dot" aria-hidden="true" />
+                <h3>{f.name}</h3>
+                <span className="fw-count">
+                  {FRAMEWORK_COUNTS[f.name] ?? 0}
+                  <small>in atlas</small>
+                </span>
+              </div>
+              <p>{f.blurb}</p>
+              <div className="fw-links">
+                <button type="button" className="fw-filter" onClick={() => selectFramework(f.name)}>
+                  Filter atlas →
+                </button>
+                <a href={f.site} target="_blank" rel="noopener noreferrer">
+                  Official ↗
+                </a>
+                <a href={f.repo} target="_blank" rel="noopener noreferrer">
+                  GitHub ↗
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <main className="atlas" id="atlas">
-        <div className="controls" id="frameworks">
+        <div className="controls">
           <div className="search">
             <span className="search-icon" aria-hidden="true">
               ⌕
@@ -295,16 +382,56 @@ function App() {
               aria-label="Filter by domain"
             >
               <option value="all">All domains</option>
-              {CATEGORIES.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
+              {DOMAIN_GROUPS.map((g) => {
+                const members = g.categories.filter((c) => CATEGORY_COUNTS[c])
+                if (!members.length) return null
+                return (
+                  <optgroup key={g.label} label={g.label}>
+                    {members
+                      .slice()
+                      .sort((a, b) => CATEGORY_COUNTS[b] - CATEGORY_COUNTS[a])
+                      .map((c) => (
+                        <option key={c} value={c}>
+                          {c} ({CATEGORY_COUNTS[c]})
+                        </option>
+                      ))}
+                  </optgroup>
+                )
+              })}
+              {UNGROUPED_CATS.length > 0 && (
+                <optgroup label="Other">
+                  {UNGROUPED_CATS.map((c) => (
+                    <option key={c} value={c}>
+                      {c} ({CATEGORY_COUNTS[c]})
+                    </option>
+                  ))}
+                </optgroup>
+              )}
             </select>
             <span className="select-caret" aria-hidden="true">
               ▾
             </span>
           </div>
+        </div>
+
+        <div className="presets" role="group" aria-label="Quick filters">
+          <span className="presets-label">Quick</span>
+          {PRESETS.map((p) => {
+            const active =
+              (p.query ?? '') === query &&
+              (p.framework ?? 'all') === framework &&
+              (p.category ?? 'all') === category
+            return (
+              <button
+                key={p.label}
+                type="button"
+                className={active ? 'preset active' : 'preset'}
+                onClick={() => applyPreset(p)}
+              >
+                {p.label}
+              </button>
+            )
+          })}
         </div>
 
         <div className="result-bar">

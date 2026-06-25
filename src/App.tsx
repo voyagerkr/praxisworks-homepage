@@ -9,24 +9,30 @@ const UPSTREAM = 'https://github.com/ashishpatel26/500-AI-Agents-Projects'
 const CONTACT = 'koji@praxisworks.dev'
 const TOTAL = agents.length
 
-// Portfolio — SAMPLE placeholders. Replace with real case studies
-// (title, one-line, tech tags, and a link/screenshot).
-type Project = { title: string; blurb: string; tags: string[]; href?: string }
+// Portfolio. Blurbs/tags/links are drafts — refine per project (esp. Love Live / Re:IW),
+// and swap the gradient thumbs for real screenshots when available.
+type Project = { title: string; mono: string; kind: string; blurb: string; tags: string[]; href?: string }
 const PORTFOLIO: Project[] = [
   {
-    title: 'AI Agent Platform',
-    blurb: 'Multi-agent automation for an operations team — designed, built, and shipped end to end.',
-    tags: ['AI', 'Python', 'LangGraph'],
+    title: 'Iron & Incense',
+    mono: 'II',
+    kind: 'GAME',
+    blurb: 'An original yokai action game — built in Unreal Engine.',
+    tags: ['Unreal', 'C++', 'Game'],
   },
   {
-    title: 'B2B SaaS Dashboard',
-    blurb: 'A full web product: authentication, billing, analytics, and an admin console.',
-    tags: ['Web', 'React', 'Node'],
+    title: 'Love Live!',
+    mono: 'LL',
+    kind: 'GAME',
+    blurb: 'Engineering for the idol-game franchise.',
+    tags: ['Game', 'Live-ops'],
   },
   {
-    title: 'Consumer Mobile App',
-    blurb: 'iOS and Android from design to store, backed by a realtime API.',
-    tags: ['Mobile', 'React Native'],
+    title: 'Re:IW',
+    mono: 'IW',
+    kind: 'GAME',
+    blurb: 'Game development and engineering.',
+    tags: ['Game'],
   },
 ]
 
@@ -68,8 +74,11 @@ function hostLabel(url: string): string {
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <article className="card pf reveal" style={{ transitionDelay: `${(index % 6) * 60}ms` }}>
-      <div className="pf-thumb" data-i={index % 3} aria-hidden="true">
-        <span className="pf-sample">SAMPLE</span>
+      <div className="pf-thumb" data-i={index % 3}>
+        <span className="pf-mono" aria-hidden="true">
+          {project.mono}
+        </span>
+        <span className="pf-kind">{project.kind}</span>
       </div>
       <h3 className="card-name">{project.title}</h3>
       <p className="card-desc">{project.blurb}</p>
@@ -180,8 +189,8 @@ function App() {
             that ship.
           </h1>
           <p className="hero-sub rise" style={{ animationDelay: '.24s' }}>
-            PraxisWorks is a development studio. We design and build software products end to end — web,
-            mobile, and AI — as your outsourced engineering team.
+            PraxisWorks is a development studio. We design and build software products end to end — games,
+            web, mobile, and AI — as your outsourced engineering team.
           </p>
           <div className="hero-cta rise" style={{ animationDelay: '.34s' }}>
             <a className="btn primary" href="#work">
@@ -192,7 +201,7 @@ function App() {
             </a>
           </div>
           <p className="hero-meta rise" style={{ animationDelay: '.46s' }}>
-            Product engineering · web · mobile · AI
+            Product engineering · games · web · mobile · AI
           </p>
         </div>
         <a className="hero-scroll" href="#work" aria-label="Scroll to work">
@@ -205,8 +214,7 @@ function App() {
           <p className="eyebrow">SELECTED WORK</p>
           <h2>Things we&rsquo;ve built</h2>
           <p className="section-sub">
-            Products we&rsquo;ve designed, built, and shipped for our partners — from AI platforms to web and
-            mobile apps.
+            A selection of the games and products we&rsquo;ve designed, built, and shipped.
           </p>
         </div>
         <div className="grid pf-grid">
@@ -256,8 +264,8 @@ function App() {
             PRAXIS<em>WORKS</em>
           </span>
           <p>
-            A development studio. We design and ship software products end to end — web, mobile, and AI — as
-            your outsourced engineering team.
+            A development studio. We design and ship software products end to end — games, web, mobile, and
+            AI — as your outsourced engineering team.
           </p>
         </div>
         <div className="footer-bot">

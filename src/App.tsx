@@ -161,6 +161,11 @@ function App() {
 
   return (
     <div className="app">
+      <div className="atmos" aria-hidden="true">
+        <i />
+        <i />
+        <i />
+      </div>
       <header className="nav">
         <a className="brand" href="#top" aria-label="PraxisWorks home">
           <span className="brand-mark" aria-hidden="true">
@@ -262,7 +267,7 @@ function App() {
       </section>
 
       <section className="cta" id="contact">
-        <div className="reveal">
+        <div className="cta-panel reveal">
           <p className="eyebrow">CONTACT</p>
           <h2>Start a project.</h2>
           <p className="section-sub">

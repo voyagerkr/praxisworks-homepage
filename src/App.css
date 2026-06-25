@@ -389,10 +389,14 @@ button {
 }
 
 /* ---------- work / showcase ---------- */
-.work {
+.work,
+.ai {
   max-width: 1380px;
   margin: 0 auto;
   padding: clamp(64px, 11vw, 128px) clamp(16px, 5vw, 72px) clamp(40px, 6vw, 72px);
+}
+.ai {
+  padding-top: clamp(40px, 6vw, 72px);
 }
 
 .grid {
@@ -523,6 +527,85 @@ button {
   margin-top: 40px;
 }
 
+/* ---------- portfolio cards ---------- */
+.pf-grid {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+.card.pf {
+  padding: 0;
+  gap: 0;
+  min-height: 318px;
+}
+.pf-thumb {
+  position: relative;
+  height: 152px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 12px;
+  background: linear-gradient(135deg, #0e1626, #0a1320);
+  border-bottom: 1px solid var(--line);
+}
+.pf-thumb[data-i='0'] {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--teal) 26%, #0a1320), #0a1320);
+}
+.pf-thumb[data-i='1'] {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 26%, #0a1320), #0a1320);
+}
+.pf-thumb[data-i='2'] {
+  background: linear-gradient(135deg, color-mix(in srgb, #9b8cff 26%, #0a1320), #0a1320);
+}
+.pf-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 14px 14px;
+  opacity: 0.6;
+}
+.pf-sample {
+  position: relative;
+  z-index: 1;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  border: 1px solid var(--line-2);
+  border-radius: 5px;
+  padding: 3px 7px;
+  background: rgba(6, 8, 13, 0.5);
+  backdrop-filter: blur(4px);
+}
+.card.pf > .card-name {
+  padding: 18px 20px 0;
+}
+.card.pf > .card-desc {
+  padding: 10px 20px 0;
+}
+.card.pf > .card-foot {
+  padding: 16px 20px 20px;
+  margin-top: auto;
+}
+.pf-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pf-tag {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 3px 7px;
+}
+.card.pf .card-link {
+  color: var(--muted);
+}
+.card.pf:hover .card-link {
+  color: var(--teal);
+}
+
 /* reveal-on-scroll */
 .reveal {
   opacity: 0;
@@ -610,7 +693,8 @@ button {
 
 /* ---------- responsive ---------- */
 @media (max-width: 720px) {
-  .nav-links a:not(:last-child) {
+  .nav-links a:nth-child(1),
+  .nav-links a:nth-child(2) {
     display: none;
   }
   .hero {

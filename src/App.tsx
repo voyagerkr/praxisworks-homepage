@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import './App.css'
 import type { AgentProject, Framework } from './types'
 import agentsData from './data/agents.json'
@@ -9,14 +9,32 @@ const UPSTREAM = 'https://github.com/ashishpatel26/500-AI-Agents-Projects'
 const CONTACT = 'koji@praxisworks.dev'
 const TOTAL = agents.length
 
-// A framework-diverse handful for the homepage highlight; the full list is opt-in.
-const pick = (pred: (a: AgentProject) => boolean, n: number) => agents.filter(pred).slice(0, n)
-const FEATURED: AgentProject[] = [
-  ...FRAMEWORKS.flatMap((fw) => pick((a) => a.framework === fw, 2)),
-  ...pick((a) => !a.framework, 1),
-].slice(0, 9)
+// Portfolio — SAMPLE placeholders. Replace with real case studies
+// (title, one-line, tech tags, and a link/screenshot).
+type Project = { title: string; blurb: string; tags: string[]; href?: string }
+const PORTFOLIO: Project[] = [
+  {
+    title: 'AI Agent Platform',
+    blurb: 'Multi-agent automation for an operations team — designed, built, and shipped end to end.',
+    tags: ['AI', 'Python', 'LangGraph'],
+  },
+  {
+    title: 'B2B SaaS Dashboard',
+    blurb: 'A full web product: authentication, billing, analytics, and an admin console.',
+    tags: ['Web', 'React', 'Node'],
+  },
+  {
+    title: 'Consumer Mobile App',
+    blurb: 'iOS and Android from design to store, backed by a realtime API.',
+    tags: ['Mobile', 'React Native'],
+  },
+]
 
-/** Reveal-on-scroll. Re-runs when the shown set changes (expanding to the full list). */
+// A few real agents to anchor the "we build AI" highlight.
+const AI_FEATURED: AgentProject[] = FRAMEWORKS.map((fw) => agents.find((a) => a.framework === fw)).filter(
+  (a): a is AgentProject => Boolean(a),
+)
+
 function useReveal(signature: string) {
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -47,9 +65,36 @@ function hostLabel(url: string): string {
   return 'GitHub'
 }
 
+function ProjectCard({ project, index }: { project: Project; index: number }) {
+  return (
+    <article className="card pf reveal" style={{ transitionDelay: `${(index % 6) * 60}ms` }}>
+      <div className="pf-thumb" data-i={index % 3} aria-hidden="true">
+        <span className="pf-sample">SAMPLE</span>
+      </div>
+      <h3 className="card-name">{project.title}</h3>
+      <p className="card-desc">{project.blurb}</p>
+      <div className="card-foot">
+        <div className="pf-tags">
+          {project.tags.map((t) => (
+            <span className="pf-tag" key={t}>
+              {t}
+            </span>
+          ))}
+        </div>
+        <a className="card-link" href={project.href ?? '#contact'}>
+          Case study
+          <span className="arrow" aria-hidden="true">
+            →
+          </span>
+        </a>
+      </div>
+    </article>
+  )
+}
+
 function AgentCard({ agent, index }: { agent: AgentProject; index: number }) {
   return (
-    <article className="card reveal" style={{ transitionDelay: `${(index % 9) * 45}ms` }}>
+    <article className="card reveal" style={{ transitionDelay: `${(index % 4) * 55}ms` }}>
       <div className="card-top">
         <span className="card-ord">{String(index + 1).padStart(3, '0')}</span>
         <span className="tag fw" data-fw={agent.framework ?? 'none'}>
@@ -72,9 +117,8 @@ function AgentCard({ agent, index }: { agent: AgentProject; index: number }) {
 }
 
 function App() {
-  const [expanded, setExpanded] = useState(false)
   const heroRef = useRef<HTMLElement>(null)
-  useReveal(expanded ? 'all' : 'featured')
+  useReveal('static')
 
   // Cursor glow on the hero only (atmosphere, perf-friendly).
   useEffect(() => {
@@ -88,8 +132,6 @@ function App() {
     el.addEventListener('pointermove', move)
     return () => el.removeEventListener('pointermove', move)
   }, [])
-
-  const shown = expanded ? agents : FEATURED
 
   return (
     <div className="app">
@@ -106,6 +148,7 @@ function App() {
         </a>
         <nav className="nav-links" aria-label="Primary">
           <a href="#work">Work</a>
+          <a href="#ai">AI</a>
           <a href="#contact">Contact</a>
           <a href={UPSTREAM} target="_blank" rel="noopener noreferrer">
             Source ↗
@@ -132,24 +175,24 @@ function App() {
             <span className="dot" /> PRAXISWORKS · DEVELOPMENT STUDIO
           </p>
           <h1 className="rise" style={{ animationDelay: '.14s' }}>
-            We build <span className="grad">AI agents</span>
+            We build <span className="grad">products</span>
             <br />
             that ship.
           </h1>
           <p className="hero-sub rise" style={{ animationDelay: '.24s' }}>
-            PraxisWorks is a development studio. We design, build, and ship AI agents — and the production
-            software around them — as your outsourced engineering team.
+            PraxisWorks is a development studio. We design and build software products end to end — web,
+            mobile, and AI — as your outsourced engineering team.
           </p>
           <div className="hero-cta rise" style={{ animationDelay: '.34s' }}>
             <a className="btn primary" href="#work">
-              See the work
+              See our work
             </a>
             <a className="btn ghost" href={`mailto:${CONTACT}`}>
               Start a project
             </a>
           </div>
           <p className="hero-meta rise" style={{ animationDelay: '.46s' }}>
-            Outsourced engineering · AI agents · production software
+            Product engineering · web · mobile · AI
           </p>
         </div>
         <a className="hero-scroll" href="#work" aria-label="Scroll to work">
@@ -159,28 +202,37 @@ function App() {
 
       <section className="work" id="work">
         <div className="section-head reveal">
-          <p className="eyebrow">THE FIELD WE BUILD IN</p>
-          <h2>A working atlas of AI agents</h2>
+          <p className="eyebrow">SELECTED WORK</p>
+          <h2>Things we&rsquo;ve built</h2>
           <p className="section-sub">
-            The landscape we work in — a curated slice of {TOTAL}+ real-world agent projects across CrewAI,
-            AutoGen, Agno and LangGraph. Every card links to working code.
+            Products we&rsquo;ve designed, built, and shipped for our partners — from AI platforms to web and
+            mobile apps.
+          </p>
+        </div>
+        <div className="grid pf-grid">
+          {PORTFOLIO.map((p, i) => (
+            <ProjectCard key={p.title} project={p} index={i} />
+          ))}
+        </div>
+      </section>
+
+      <section className="ai" id="ai">
+        <div className="section-head reveal">
+          <p className="eyebrow">AI PRODUCT DEVELOPMENT</p>
+          <h2>We also build AI products</h2>
+          <p className="section-sub">
+            From AI agents to LLM features — production AI, shipped. This is the agent landscape we build in:
           </p>
         </div>
         <div className="grid">
-          {shown.map((a, i) => (
+          {AI_FEATURED.map((a, i) => (
             <AgentCard key={a.id} agent={a} index={i} />
           ))}
         </div>
         <div className="work-more">
-          {!expanded ? (
-            <button type="button" className="btn ghost" onClick={() => setExpanded(true)}>
-              View all {TOTAL} agents
-            </button>
-          ) : (
-            <a className="btn ghost" href={UPSTREAM} target="_blank" rel="noopener noreferrer">
-              Browse the full catalog ↗
-            </a>
-          )}
+          <a className="btn ghost" href={UPSTREAM} target="_blank" rel="noopener noreferrer">
+            Browse the agent atlas — {TOTAL} projects ↗
+          </a>
         </div>
       </section>
 
@@ -189,8 +241,8 @@ function App() {
           <p className="eyebrow">CONTACT</p>
           <h2>Start a project.</h2>
           <p className="section-sub">
-            Need an outsourced team to design and ship AI agents — or the software around them? Tell us what
-            you're building.
+            Need an outsourced team to design and ship your product — including the AI inside it? Tell us
+            what you&rsquo;re building.
           </p>
           <a className="btn primary" href={`mailto:${CONTACT}`}>
             {CONTACT}
@@ -204,12 +256,8 @@ function App() {
             PRAXIS<em>WORKS</em>
           </span>
           <p>
-            A development studio building AI agents and the products around them. Atlas curated from the
-            open-source{' '}
-            <a href={UPSTREAM} target="_blank" rel="noopener noreferrer">
-              500 AI Agents Projects
-            </a>{' '}
-            catalog.
+            A development studio. We design and ship software products end to end — web, mobile, and AI — as
+            your outsourced engineering team.
           </p>
         </div>
         <div className="footer-bot">

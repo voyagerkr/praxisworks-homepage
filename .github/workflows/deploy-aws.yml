@@ -1,0 +1,69 @@
+name: Deploy to AWS (S3 + CloudFront) - prod/dev
+
+# 정적 사이트 배포: pnpm build → S3 sync → CloudFront 무효화.
+# 전제: IaC/praxis-aws 의 terraform apply 완료 (버킷/배포 생성됨). praxis 계정 키 사용.
+#  - 버킷       : praxisworks-homepage-<env>   (env = prod | dev)
+#  - CloudFront : Comment == "praxis-homepage-<env>" 로 배포 조회
+# (이전 GitHub Pages 워크플로우 deploy-pages.yml 은 비활성/삭제 권장)
+
+on:
+  push:
+    branches: [ "prod", "qa" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  AWS_REGION: ap-northeast-2
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve environment by branch
+        run: |
+          ENV="${{ github.ref_name }}"
+          echo "ENVIRONMENT=$ENV" >> $GITHUB_ENV
+          echo "S3_BUCKET=praxisworks-homepage-${ENV}" >> $GITHUB_ENV
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install & build
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm run build
+
+      - name: Configure AWS credentials (praxis account)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Sync to S3 + invalidate CloudFront
+        run: |
+          aws s3 sync dist/ "s3://${S3_BUCKET}" --delete
+          DIST_ID=$(aws cloudfront list-distributions \
+            --query "DistributionList.Items[?Comment=='praxis-homepage-${ENVIRONMENT}'].Id | [0]" --output text)
+          if [ -n "$DIST_ID" ] && [ "$DIST_ID" != "None" ]; then
+            aws cloudfront create-invalidation --distribution-id "$DIST_ID" --paths "/*"
+          else
+            echo "CloudFront 배포(praxis-homepage-${ENVIRONMENT})를 찾지 못함 — 무효화 건너뜀"
+          fi
+
+      - name: Summary
+        run: |
+          echo "## Praxis Homepage Deploy (${ENVIRONMENT})" >> $GITHUB_STEP_SUMMARY
+          echo "Bucket: ${S3_BUCKET}"                       >> $GITHUB_STEP_SUMMARY
+          echo "Commit: ${{ github.sha }}"                  >> $GITHUB_STEP_SUMMARY

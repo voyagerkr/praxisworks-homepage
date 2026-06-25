@@ -28,11 +28,11 @@
   </g>
 
   <!-- headline -->
-  <text x="78" y="320" fill="#ffffff" font-size="92" font-weight="800" letter-spacing="-2">The applied atlas</text>
-  <text x="78" y="416" font-size="92" font-weight="800" letter-spacing="-2" fill="url(#accent)">of AI agents.</text>
+  <text x="78" y="320" fill="#ffffff" font-size="92" font-weight="800" letter-spacing="-2">We build AI agents</text>
+  <text x="78" y="416" font-size="92" font-weight="800" letter-spacing="-2" fill="url(#accent)">that ship.</text>
 
   <!-- subline -->
-  <text x="80" y="486" fill="#c4ccda" font-size="29" font-weight="500">100+ real-world AI agent projects — searchable by industry and framework.</text>
+  <text x="80" y="486" fill="#c4ccda" font-size="29" font-weight="500">Development studio · outsourced engineering for AI agents</text>
 
   <!-- footer row -->
   <text x="80" y="566" fill="#7e8aa0" font-size="23" font-weight="600" letter-spacing="1" font-family="'JetBrains Mono', monospace">CrewAI · AutoGen · Agno · LangGraph</text>

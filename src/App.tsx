@@ -129,27 +129,27 @@ function App() {
         <div className="hero-grain" aria-hidden="true" />
         <div className="hero-inner">
           <p className="kicker rise" style={{ animationDelay: '.05s' }}>
-            <span className="dot" /> PRAXISWORKS
+            <span className="dot" /> PRAXISWORKS · DEVELOPMENT STUDIO
           </p>
           <h1 className="rise" style={{ animationDelay: '.14s' }}>
-            The applied atlas
+            We build <span className="grad">AI agents</span>
             <br />
-            of <span className="grad">AI agents</span>.
+            that ship.
           </h1>
           <p className="hero-sub rise" style={{ animationDelay: '.24s' }}>
-            PraxisWorks curates {TOTAL}+ real-world AI agent projects — working code across industries and
-            frameworks. From practice, not slideware.
+            PraxisWorks is a development studio. We design, build, and ship AI agents — and the production
+            software around them — as your outsourced engineering team.
           </p>
           <div className="hero-cta rise" style={{ animationDelay: '.34s' }}>
             <a className="btn primary" href="#work">
               See the work
             </a>
             <a className="btn ghost" href={`mailto:${CONTACT}`}>
-              Get in touch
+              Start a project
             </a>
           </div>
           <p className="hero-meta rise" style={{ animationDelay: '.46s' }}>
-            {TOTAL} projects · CrewAI · AutoGen · Agno · LangGraph
+            Outsourced engineering · AI agents · production software
           </p>
         </div>
         <a className="hero-scroll" href="#work" aria-label="Scroll to work">
@@ -159,11 +159,11 @@ function App() {
 
       <section className="work" id="work">
         <div className="section-head reveal">
-          <p className="eyebrow">SELECTED WORK</p>
-          <h2>A working showcase of AI agents</h2>
+          <p className="eyebrow">THE FIELD WE BUILD IN</p>
+          <h2>A working atlas of AI agents</h2>
           <p className="section-sub">
-            A hand-picked slice across CrewAI, AutoGen, Agno and LangGraph — every card links to a working
-            repo or notebook.
+            The landscape we work in — a curated slice of {TOTAL}+ real-world agent projects across CrewAI,
+            AutoGen, Agno and LangGraph. Every card links to working code.
           </p>
         </div>
         <div className="grid">
@@ -187,9 +187,10 @@ function App() {
       <section className="cta" id="contact">
         <div className="reveal">
           <p className="eyebrow">CONTACT</p>
-          <h2>Work with PraxisWorks.</h2>
+          <h2>Start a project.</h2>
           <p className="section-sub">
-            Building with AI agents, or want a curated atlas for your team? Say hello.
+            Need an outsourced team to design and ship AI agents — or the software around them? Tell us what
+            you're building.
           </p>
           <a className="btn primary" href={`mailto:${CONTACT}`}>
             {CONTACT}
@@ -203,7 +204,8 @@ function App() {
             PRAXIS<em>WORKS</em>
           </span>
           <p>
-            The applied atlas of AI agents. Curated from the open-source{' '}
+            A development studio building AI agents and the products around them. Atlas curated from the
+            open-source{' '}
             <a href={UPSTREAM} target="_blank" rel="noopener noreferrer">
               500 AI Agents Projects
             </a>{' '}

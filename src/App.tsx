@@ -9,29 +9,32 @@ const UPSTREAM = 'https://github.com/ashishpatel26/500-AI-Agents-Projects'
 const CONTACT = 'koji@praxisworks.dev'
 const TOTAL = agents.length
 
-// Portfolio. Blurbs/tags/links are drafts — refine per project (esp. Love Live / Re:IW),
-// and swap the gradient thumbs for real screenshots when available.
-type Project = { title: string; mono: string; kind: string; blurb: string; tags: string[]; href?: string }
+// Portfolio. Re:IW blurb is a placeholder pending detail; its thumb stays a monogram.
+type Project = { title: string; mono: string; kind: string; blurb: string; tags: string[]; href?: string; image?: string }
 const PORTFOLIO: Project[] = [
   {
     title: 'Iron & Incense',
     mono: 'II',
     kind: 'GAME',
-    blurb: 'An original yokai action game — built in Unreal Engine.',
+    blurb: 'An occult extraction shooter set in a sealed-off Shibuya — built in Unreal Engine.',
     tags: ['Unreal', 'C++', 'Game'],
+    image: 'pf/iron-incense.jpg',
+    href: 'https://store.steampowered.com/app/4406440/Iron__Incense/',
   },
   {
     title: 'Love Live!',
     mono: 'LL',
     kind: 'GAME',
-    blurb: 'Engineering for the idol-game franchise.',
-    tags: ['Game', 'Live-ops'],
+    blurb: 'Key art, Spine animation, and client + server development for the idol-game franchise.',
+    tags: ['Art', 'Spine', 'Client/Server'],
+    image: 'pf/love-live.jpg',
+    href: 'https://www.youtube.com/playlist?list=PLolxaJPpQwQ4UFLHdYHGDx2JRsEbyeKz1',
   },
   {
     title: 'Re:IW',
     mono: 'IW',
     kind: 'GAME',
-    blurb: 'Game development and engineering.',
+    blurb: 'Game development.',
     tags: ['Game'],
   },
 ]
@@ -72,12 +75,21 @@ function hostLabel(url: string): string {
 }
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const external = !!project.href && /^https?:/.test(project.href)
   return (
     <article className="card pf reveal" style={{ transitionDelay: `${(index % 6) * 60}ms` }}>
       <div className="pf-thumb" data-i={index % 3}>
-        <span className="pf-mono" aria-hidden="true">
-          {project.mono}
-        </span>
+        {project.image ? (
+          <img
+            className="pf-img"
+            src={`${import.meta.env.BASE_URL}${project.image}`}
+            alt={`${project.title} — work by PraxisWorks`}
+          />
+        ) : (
+          <span className="pf-mono" aria-hidden="true">
+            {project.mono}
+          </span>
+        )}
         <span className="pf-kind">{project.kind}</span>
       </div>
       <h3 className="card-name">{project.title}</h3>
@@ -90,10 +102,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             </span>
           ))}
         </div>
-        <a className="card-link" href={project.href ?? '#contact'}>
-          Case study
+        <a
+          className="card-link"
+          href={project.href ?? '#contact'}
+          target={external ? '_blank' : undefined}
+          rel={external ? 'noopener noreferrer' : undefined}
+        >
+          {external ? 'View' : 'Case study'}
           <span className="arrow" aria-hidden="true">
-            →
+            {external ? '↗' : '→'}
           </span>
         </a>
       </div>

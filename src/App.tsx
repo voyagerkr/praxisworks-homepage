@@ -22,22 +22,6 @@ const PORTFOLIO: Project[] = [
     image: 'pf/iron-incense.jpg',
     href: 'https://store.steampowered.com/app/4406440/Iron__Incense/',
   },
-  {
-    title: 'Love Live!',
-    mono: 'LL',
-    kind: 'GAME',
-    blurb: 'Key art, Spine animation, and client + server development for the idol-game franchise.',
-    tags: ['Art', 'Spine', 'Client/Server'],
-    image: 'pf/love-live.jpg',
-    href: 'https://www.youtube.com/playlist?list=PLolxaJPpQwQ4UFLHdYHGDx2JRsEbyeKz1',
-  },
-  {
-    title: 'Re:IW',
-    mono: 'IW',
-    kind: 'GAME',
-    blurb: 'Game development.',
-    tags: ['Game'],
-  },
 ]
 
 // A few real agents to anchor the "we build AI" highlight.
@@ -373,7 +357,7 @@ function App() {
           <h2>{t.workHead}</h2>
           <p className="section-sub">{t.workSub}</p>
         </div>
-        <div className="grid pf-grid">
+        <div className={PORTFOLIO.length === 1 ? 'grid pf-grid single' : 'grid pf-grid'}>
           {PORTFOLIO.map((p, i) => (
             <ProjectCard key={p.title} project={p} index={i} view={t.view} caseStudy={t.caseStudy} />
           ))}

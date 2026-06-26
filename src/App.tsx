@@ -1,7 +1,8 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 import type { AgentProject, Framework } from './types'
 import agentsData from './data/agents.json'
+import { LANGS, dict, type Lang } from './i18n'
 
 const agents = agentsData as unknown as AgentProject[]
 const FRAMEWORKS: Framework[] = ['CrewAI', 'AutoGen', 'Agno', 'LangGraph']
@@ -44,6 +45,21 @@ const AI_FEATURED: AgentProject[] = FRAMEWORKS.map((fw) => agents.find((a) => a.
   (a): a is AgentProject => Boolean(a),
 )
 
+const MARQUEE = [
+  'Game Development',
+  'Unreal',
+  'Unity',
+  'Web',
+  'React',
+  'Node.js',
+  'Mobile',
+  'Spine',
+  'AI Agents',
+  'LLM',
+  'Backend',
+  'Live-ops',
+]
+
 function useReveal(signature: string) {
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -68,16 +84,89 @@ function useReveal(signature: string) {
   }, [signature])
 }
 
+// Pointer + scroll micro-interactions: scroll progress, magnetic buttons,
+// 3D card tilt, and light parallax. Re-runs when `signature` changes so it
+// re-binds after the cards remount (e.g. on a language switch).
+function usePageFx(signature: string) {
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const bar = document.querySelector<HTMLElement>('.progress')
+    const root = document.documentElement
+
+    const onScroll = () => {
+      const max = root.scrollHeight - root.clientHeight || 1
+      if (bar) bar.style.transform = `scaleX(${Math.min(1, root.scrollTop / max)})`
+      document.querySelectorAll<HTMLElement>('[data-par]').forEach((el) => {
+        const amt = Number(el.dataset.par ?? '0')
+        el.style.transform = `translate3d(0, ${root.scrollTop * amt}px, 0)`
+      })
+    }
+    const magMove = (e: Event) => {
+      const el = e.currentTarget as HTMLElement
+      const p = e as PointerEvent
+      const r = el.getBoundingClientRect()
+      el.style.transform = `translate(${(p.clientX - r.left - r.width / 2) * 0.25}px, ${
+        (p.clientY - r.top - r.height / 2) * 0.4
+      }px)`
+    }
+    const magLeave = (e: Event) => ((e.currentTarget as HTMLElement).style.transform = '')
+    const tiltMove = (e: Event) => {
+      const el = e.currentTarget as HTMLElement
+      const p = e as PointerEvent
+      const r = el.getBoundingClientRect()
+      const x = (p.clientX - r.left) / r.width - 0.5
+      const y = (p.clientY - r.top) / r.height - 0.5
+      el.style.transform = `perspective(1100px) rotateX(${-y * 5.5}deg) rotateY(${x * 5.5}deg) translateY(-6px)`
+    }
+    const tiltLeave = (e: Event) => ((e.currentTarget as HTMLElement).style.transform = '')
+
+    const mags = [...document.querySelectorAll<HTMLElement>('.magnetic')]
+    const tilts = [...document.querySelectorAll<HTMLElement>('.tilt')]
+    mags.forEach((el) => {
+      el.addEventListener('pointermove', magMove)
+      el.addEventListener('pointerleave', magLeave)
+    })
+    tilts.forEach((el) => {
+      el.addEventListener('pointermove', tiltMove)
+      el.addEventListener('pointerleave', tiltLeave)
+    })
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      mags.forEach((el) => {
+        el.removeEventListener('pointermove', magMove)
+        el.removeEventListener('pointerleave', magLeave)
+      })
+      tilts.forEach((el) => {
+        el.removeEventListener('pointermove', tiltMove)
+        el.removeEventListener('pointerleave', tiltLeave)
+      })
+    }
+  }, [signature])
+}
+
 function hostLabel(url: string): string {
   if (/\.ipynb($|\?)/.test(url)) return 'Notebook'
   if (url.includes('colab.research')) return 'Colab'
   return 'GitHub'
 }
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({
+  project,
+  index,
+  view,
+  caseStudy,
+}: {
+  project: Project
+  index: number
+  view: string
+  caseStudy: string
+}) {
   const external = !!project.href && /^https?:/.test(project.href)
   return (
-    <article className="card pf reveal" style={{ transitionDelay: `${(index % 6) * 60}ms` }}>
+    <article className="card pf reveal tilt" style={{ transitionDelay: `${(index % 6) * 60}ms` }}>
       <div className="pf-thumb" data-i={index % 3}>
         {project.image ? (
           <img
@@ -108,7 +197,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           target={external ? '_blank' : undefined}
           rel={external ? 'noopener noreferrer' : undefined}
         >
-          {external ? 'View' : 'Case study'}
+          {external ? view : caseStudy}
           <span className="arrow" aria-hidden="true">
             {external ? '↗' : '→'}
           </span>
@@ -120,7 +209,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
 function AgentCard({ agent, index }: { agent: AgentProject; index: number }) {
   return (
-    <article className="card reveal" style={{ transitionDelay: `${(index % 4) * 55}ms` }}>
+    <article className="card reveal tilt" style={{ transitionDelay: `${(index % 4) * 55}ms` }}>
       <div className="card-top">
         <span className="card-ord">{String(index + 1).padStart(3, '0')}</span>
         <span className="tag fw" data-fw={agent.framework ?? 'none'}>
@@ -144,7 +233,27 @@ function AgentCard({ agent, index }: { agent: AgentProject; index: number }) {
 
 function App() {
   const heroRef = useRef<HTMLElement>(null)
-  useReveal('static')
+  const [lang, setLang] = useState<Lang>(() => {
+    const saved = localStorage.getItem('pwLang')
+    if (saved && LANGS.some((l) => l.code === saved)) return saved as Lang
+    const nav = navigator.language.toLowerCase()
+    const base = nav.split('-')[0]
+    const match =
+      LANGS.find((l) => l.code.toLowerCase() === nav) ??
+      LANGS.find((l) => l.code.toLowerCase().split('-')[0] === base)
+    return match?.code ?? 'en'
+  })
+  const t = dict[lang]
+
+  useEffect(() => {
+    localStorage.setItem('pwLang', lang)
+    const meta = LANGS.find((l) => l.code === lang)
+    document.documentElement.lang = lang
+    document.documentElement.dir = meta?.dir ?? 'ltr'
+  }, [lang])
+
+  useReveal(lang)
+  usePageFx(lang)
 
   // Cursor glow on the hero only (atmosphere, perf-friendly).
   useEffect(() => {
@@ -166,6 +275,7 @@ function App() {
         <i />
         <i />
       </div>
+      <div className="progress" aria-hidden="true" />
       <header className="nav">
         <a className="brand" href="#top" aria-label="PraxisWorks home">
           <span className="brand-mark" aria-hidden="true">
@@ -177,14 +287,28 @@ function App() {
             PRAXIS<em>WORKS</em>
           </span>
         </a>
-        <nav className="nav-links" aria-label="Primary">
-          <a href="#work">Work</a>
-          <a href="#ai">AI</a>
-          <a href="#contact">Contact</a>
-          <a href={UPSTREAM} target="_blank" rel="noopener noreferrer">
-            Source ↗
-          </a>
-        </nav>
+        <div className="nav-right">
+          <nav className="nav-links" aria-label="Primary">
+            <a href="#work">{t.navWork}</a>
+            <a href="#ai">{t.navAI}</a>
+            <a href="#contact">{t.navContact}</a>
+            <a href={UPSTREAM} target="_blank" rel="noopener noreferrer">
+              {t.navSource} ↗
+            </a>
+          </nav>
+          <select
+            className="lang-select"
+            value={lang}
+            onChange={(e) => setLang(e.target.value as Lang)}
+            aria-label="Language"
+          >
+            {LANGS.map((l) => (
+              <option key={l.code} value={l.code}>
+                {l.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </header>
 
       <section className="hero" id="top" ref={heroRef}>
@@ -203,27 +327,24 @@ function App() {
         <div className="hero-grain" aria-hidden="true" />
         <div className="hero-inner">
           <p className="kicker rise" style={{ animationDelay: '.05s' }}>
-            <span className="dot" /> PRAXISWORKS · DEVELOPMENT STUDIO
+            <span className="dot" /> PRAXISWORKS · {t.kicker}
           </p>
           <h1 className="rise" style={{ animationDelay: '.14s' }}>
-            We build <span className="grad">products</span>
-            <br />
-            that ship.
+            <span className="grad">{t.head}</span>
           </h1>
           <p className="hero-sub rise" style={{ animationDelay: '.24s' }}>
-            PraxisWorks is a development studio. We design and build software products end to end — games,
-            web, mobile, and AI — as your outsourced engineering team.
+            {t.sub}
           </p>
           <div className="hero-cta rise" style={{ animationDelay: '.34s' }}>
-            <a className="btn primary" href="#work">
-              See our work
+            <a className="btn primary magnetic" href="#work">
+              {t.ctaWork}
             </a>
-            <a className="btn ghost" href={`mailto:${CONTACT}`}>
-              Start a project
+            <a className="btn ghost magnetic" href={`mailto:${CONTACT}`}>
+              {t.ctaStart}
             </a>
           </div>
           <p className="hero-meta rise" style={{ animationDelay: '.46s' }}>
-            Product engineering · games · web · mobile · AI
+            {t.meta}
           </p>
         </div>
         <a className="hero-scroll" href="#work" aria-label="Scroll to work">
@@ -231,28 +352,39 @@ function App() {
         </a>
       </section>
 
+      <div className="marquee" aria-hidden="true">
+        <div className="marquee-track">
+          <div className="marquee-row">
+            {MARQUEE.map((m, i) => (
+              <span key={`a-${i}`}>{m}</span>
+            ))}
+          </div>
+          <div className="marquee-row">
+            {MARQUEE.map((m, i) => (
+              <span key={`b-${i}`}>{m}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <section className="work" id="work">
         <div className="section-head reveal">
-          <p className="eyebrow">SELECTED WORK</p>
-          <h2>Things we&rsquo;ve built</h2>
-          <p className="section-sub">
-            A selection of the games and products we&rsquo;ve designed, built, and shipped.
-          </p>
+          <p className="eyebrow">{t.workKicker}</p>
+          <h2>{t.workHead}</h2>
+          <p className="section-sub">{t.workSub}</p>
         </div>
         <div className="grid pf-grid">
           {PORTFOLIO.map((p, i) => (
-            <ProjectCard key={p.title} project={p} index={i} />
+            <ProjectCard key={p.title} project={p} index={i} view={t.view} caseStudy={t.caseStudy} />
           ))}
         </div>
       </section>
 
       <section className="ai" id="ai">
         <div className="section-head reveal">
-          <p className="eyebrow">AI PRODUCT DEVELOPMENT</p>
-          <h2>We also build AI products</h2>
-          <p className="section-sub">
-            From AI agents to LLM features — production AI, shipped. This is the agent landscape we build in:
-          </p>
+          <p className="eyebrow">{t.aiKicker}</p>
+          <h2>{t.aiHead}</h2>
+          <p className="section-sub">{t.aiSub}</p>
         </div>
         <div className="grid">
           {AI_FEATURED.map((a, i) => (
@@ -260,21 +392,18 @@ function App() {
           ))}
         </div>
         <div className="work-more">
-          <a className="btn ghost" href={UPSTREAM} target="_blank" rel="noopener noreferrer">
-            Browse the agent atlas — {TOTAL} projects ↗
+          <a className="btn ghost magnetic" href={UPSTREAM} target="_blank" rel="noopener noreferrer">
+            {t.aiBrowse.replace('{n}', String(TOTAL))} ↗
           </a>
         </div>
       </section>
 
       <section className="cta" id="contact">
         <div className="cta-panel reveal">
-          <p className="eyebrow">CONTACT</p>
-          <h2>Start a project.</h2>
-          <p className="section-sub">
-            Need an outsourced team to design and ship your product — including the AI inside it? Tell us
-            what you&rsquo;re building.
-          </p>
-          <a className="btn primary" href={`mailto:${CONTACT}`}>
+          <p className="eyebrow">{t.contactKicker}</p>
+          <h2>{t.contactHead}</h2>
+          <p className="section-sub">{t.contactSub}</p>
+          <a className="btn primary magnetic" href={`mailto:${CONTACT}`}>
             {CONTACT}
           </a>
         </div>
@@ -285,10 +414,7 @@ function App() {
           <span className="brand-word">
             PRAXIS<em>WORKS</em>
           </span>
-          <p>
-            A development studio. We design and ship software products end to end — games, web, mobile, and
-            AI — as your outsourced engineering team.
-          </p>
+          <p>{t.footer}</p>
         </div>
         <div className="footer-bot">
           <a href="https://dev.praxisworks.dev/">dev.praxisworks.dev</a>

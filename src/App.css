@@ -227,6 +227,31 @@ button {
   color: var(--text);
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.4vw, 26px);
+}
+.lang-select {
+  appearance: none;
+  padding: 7px 12px;
+  border-radius: 9px;
+  border: 1px solid var(--line-2);
+  background: var(--panel);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 12px;
+  cursor: pointer;
+  max-width: 46vw;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+.lang-select:hover {
+  color: var(--text);
+  border-color: var(--faint);
+}
+
 /* ---------- hero ---------- */
 .hero {
   position: relative;
@@ -335,10 +360,17 @@ button {
   letter-spacing: -0.02em;
 }
 .grad {
-  background: var(--grad);
+  background: linear-gradient(105deg, var(--teal), var(--blue) 50%, var(--teal));
+  background-size: 220% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: shimmer 7s linear infinite;
+}
+@keyframes shimmer {
+  to {
+    background-position: -220% 0;
+  }
 }
 
 .hero-sub {
@@ -450,6 +482,66 @@ button {
   }
 }
 
+/* scroll progress bar */
+.progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 70;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: var(--grad);
+  box-shadow: 0 0 12px rgba(47, 224, 200, 0.55);
+  pointer-events: none;
+}
+
+/* capability marquee */
+.marquee {
+  overflow: hidden;
+  padding: 17px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.012);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 34s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-row {
+  display: flex;
+  flex-shrink: 0;
+}
+.marquee-row span {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 30px;
+  font-family: var(--mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.marquee-row span::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  margin-left: 30px;
+  border-radius: 50%;
+  background: var(--teal);
+  opacity: 0.55;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /* ---------- section head (shared) ---------- */
 .section-head {
   max-width: 640px;
@@ -531,7 +623,6 @@ button {
   transition: opacity 0.3s;
 }
 .card:hover {
-  transform: translateY(-6px);
   border-color: color-mix(in srgb, var(--teal) 50%, transparent);
   box-shadow:
     0 28px 60px rgba(0, 0, 0, 0.5),
@@ -860,8 +951,7 @@ button {
 
 /* ---------- responsive ---------- */
 @media (max-width: 720px) {
-  .nav-links a:nth-child(1),
-  .nav-links a:nth-child(2) {
+  .nav-links {
     display: none;
   }
   .hero {

@@ -76,13 +76,18 @@ function usePageFx(signature: string) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     const bar = document.querySelector<HTMLElement>('.progress')
     const root = document.documentElement
+    let scrollFrame = 0
 
     const onScroll = () => {
-      const max = root.scrollHeight - root.clientHeight || 1
-      if (bar) bar.style.transform = `scaleX(${Math.min(1, root.scrollTop / max)})`
-      document.querySelectorAll<HTMLElement>('[data-par]').forEach((el) => {
-        const amt = Number(el.dataset.par ?? '0')
-        el.style.transform = `translate3d(0, ${root.scrollTop * amt}px, 0)`
+      if (scrollFrame) return
+      scrollFrame = requestAnimationFrame(() => {
+        const max = root.scrollHeight - root.clientHeight || 1
+        if (bar) bar.style.transform = `scaleX(${Math.min(1, root.scrollTop / max)})`
+        document.querySelectorAll<HTMLElement>('[data-par]').forEach((el) => {
+          const amt = Number(el.dataset.par ?? '0')
+          el.style.transform = `translate3d(0, ${root.scrollTop * amt}px, 0)`
+        })
+        scrollFrame = 0
       })
     }
     const magMove = (e: Event) => {
@@ -118,6 +123,7 @@ function usePageFx(signature: string) {
     onScroll()
 
     return () => {
+      cancelAnimationFrame(scrollFrame)
       window.removeEventListener('scroll', onScroll)
       mags.forEach((el) => {
         el.removeEventListener('pointermove', magMove)
@@ -254,6 +260,9 @@ function App() {
 
   return (
     <div className="app">
+      <a className="skip-link" href="#work">
+        Skip to content
+      </a>
       <div className="atmos" aria-hidden="true">
         <i />
         <i />
@@ -331,9 +340,6 @@ function App() {
             {t.meta}
           </p>
         </div>
-        <a className="hero-scroll" href="#work" aria-label="Scroll to work">
-          <span />
-        </a>
       </section>
 
       <div className="marquee" aria-hidden="true">
@@ -384,7 +390,6 @@ function App() {
 
       <section className="cta" id="contact">
         <div className="cta-panel reveal">
-          <p className="eyebrow">{t.contactKicker}</p>
           <h2>{t.contactHead}</h2>
           <p className="section-sub">{t.contactSub}</p>
           <a className="btn primary magnetic" href={`mailto:${CONTACT}`}>

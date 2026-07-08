@@ -65,6 +65,34 @@ button {
   cursor: pointer;
 }
 
+a:focus-visible,
+button:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 12px;
+  left: 12px;
+  transform: translateY(-150%);
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.18s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .app {
   position: relative;
   overflow: clip;
@@ -122,8 +150,8 @@ button {
   height: 42vw;
   bottom: -16%;
   left: 26%;
-  opacity: 0.3;
-  background: radial-gradient(circle, #7b5cff, transparent 68%);
+  opacity: 0.22;
+  background: radial-gradient(circle, #17405a, transparent 68%);
   animation: drift-c 30s ease-in-out infinite;
 }
 @keyframes drift-a {
@@ -432,38 +460,8 @@ button {
   color: #fff;
 }
 
-.hero-scroll {
-  position: absolute;
-  left: 50%;
-  bottom: 26px;
-  translate: -50% 0;
-  width: 26px;
-  height: 42px;
-  border: 1.5px solid var(--line-2);
-  border-radius: 14px;
-  display: grid;
-  place-items: start center;
-  padding-top: 7px;
-}
-.hero-scroll span {
-  width: 3px;
-  height: 8px;
-  border-radius: 2px;
-  background: var(--teal);
-  animation: scroll 1.7s infinite;
-}
-@keyframes scroll {
-  0% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  35% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(13px);
-  }
+.btn:active {
+  transform: translateY(1px) scale(0.99);
 }
 
 /* page-load rise */

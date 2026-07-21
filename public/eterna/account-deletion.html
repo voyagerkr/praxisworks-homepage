@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Eterna 계정 삭제 안내 — PraxisWorks</title>
+<style>
+  :root{
+    --ink:#1a1a1e; --ink-soft:#4a4a52; --ink-mute:#77777f;
+    --bg:#ffffff; --panel:#f6f5f2; --line:#e5e3dd; --accent:#5b4bd6;
+    --warn-bg:#fbf1e4; --warn-line:#e6c58a; --warn-ink:#7a521a;
+    --max:44rem;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --ink:#e9e8ee; --ink-soft:#b7b6c0; --ink-mute:#88878f;
+      --bg:#161519; --panel:#1e1d22; --line:#2c2b31; --accent:#a79bf5;
+      --warn-bg:#2a2213; --warn-line:#5c4a22; --warn-ink:#e6c58a; }
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard",
+    "Noto Sans KR",sans-serif;line-height:1.75;}
+  main{max-width:var(--max);margin:0 auto;padding:3rem 1.25rem 5rem;}
+  h1{font-size:1.7rem;line-height:1.3;margin:0 0 .4rem;}
+  .sub{color:var(--ink-mute);font-size:.92rem;margin-bottom:2.2rem;}
+  h2{font-size:1.15rem;margin:2.4rem 0 .7rem;padding-top:1.2rem;border-top:1px solid var(--line);}
+  p,li{color:var(--ink-soft);font-size:.97rem;}
+  ul{padding-left:1.2rem;}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:1rem 1.2rem;margin:1rem 0;}
+  .warn{background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-ink);
+    border-radius:10px;padding:.8rem 1.1rem;font-size:.92rem;}
+  .step{font-weight:600;color:var(--ink);}
+  table{border-collapse:collapse;width:100%;font-size:.93rem;}
+  th,td{border:1px solid var(--line);padding:.55rem .7rem;text-align:left;color:var(--ink-soft);}
+  th{background:var(--panel);color:var(--ink);}
+  a{color:var(--accent);}
+</style>
+</head>
+<body>
+<main>
+  <h1>Eterna 계정 삭제 안내</h1>
+  <p class="sub">앱: Eterna (com.praxisworks.eterna) · 개발사: praxisworks Inc. · 시행일: 2026-07-21(초안)</p>
+
+  <p>Eterna 계정과 관련 데이터의 삭제를 원하시면 아래 두 가지 방법 중 하나로 요청하실 수 있습니다.
+  계정 삭제는 무료이며, 삭제 요청에 별도의 사유를 요구하지 않습니다.</p>
+
+  <h2>1. 앱 안에서 직접 삭제 (권장)</h2>
+  <div class="panel">
+    <p><span class="step">설정 → 계정 관리 → 계정 삭제</span></p>
+    <p>안내에 따라 확인을 완료하면 즉시 삭제가 접수됩니다.</p>
+  </div>
+
+  <h2>2. 앱에 접근할 수 없는 경우 — 이메일 요청</h2>
+  <div class="panel">
+    <p>아래 문의처로 계정 삭제를 요청해 주세요. 본인 확인을 위해
+    <strong>로그인에 사용한 소셜 계정 종류(Google/Apple 등) 또는 이메일, 게임 닉네임</strong>을 함께 알려주시면
+    확인 후 처리해 드립니다.</p>
+    <p>문의처: <strong>[확인: privacy@praxisworks.dev 등 실제 수신 가능한 주소]</strong></p>
+  </div>
+
+  <h2>3. 삭제 처리 절차와 기간</h2>
+  <ul>
+    <li>삭제 접수 즉시 계정은 비활성화되어 서비스 이용이 중단됩니다.</li>
+    <li>접수 후 <strong>15일의 유예 기간</strong>이 지나면 데이터가 파기됩니다.
+      유예 기간 중 다시 로그인하시면 삭제를 철회하고 계정을 복구할 수 있습니다.</li>
+    <li>이메일 요청의 경우 본인 확인 완료 시점부터 동일한 절차가 적용되며,
+      요청 접수 후 지체 없이(영업일 기준 최대 10일 이내) 처리 결과를 회신합니다.</li>
+  </ul>
+
+  <h2>4. 삭제되는 데이터와 보존되는 데이터</h2>
+  <table>
+    <tr><th>구분</th><th>항목</th></tr>
+    <tr><td>삭제</td><td>계정·프로필(닉네임, 소셜 연동 정보, 이메일), 미러(아바타) 성향·학습 데이터,
+      AI 대화 기록, 채팅 메시지, 보유 재화·아이템, 친구 목록</td></tr>
+    <tr><td>법정 보존</td><td>전자상거래 등에서의 소비자 보호에 관한 법률 등 관계 법령이 정한
+      결제·거래 기록(5년), 소비자 불만·분쟁 처리 기록(3년) 등 — 법정 기간 경과 후 파기</td></tr>
+  </table>
+  <p>세부 항목과 보유 기간은 <a href="/eterna/privacy.html">개인정보처리방침</a>을 참고해 주세요.</p>
+
+  <div class="warn">
+    유의: 계정 삭제 시 보유 중인 유료 재화(에너지)·멤버십은 소멸되며 복구되지 않습니다.
+    환불 관련 문의는 삭제 요청 전에 구매하신 스토어(Google Play)의 환불 절차를 이용해 주세요.
+  </div>
+</main>
+</body>
+</html>

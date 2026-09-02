@@ -39,6 +39,18 @@ curl -sSL https://raw.githubusercontent.com/ashishpatel26/500-AI-Agents-Projects
 pnpm data /tmp/agents_readme.md
 ```
 
+## Company profile
+
+The 会社概要 / company-profile section (`#company`) is data-driven, so the facts live in
+exactly one place:
+
+- `src/data/company.ts` — the factual rows (company name, founded, representative, capital,
+  registration numbers, address, business, contact, website) plus the schema.org `Organization`
+  markup built from them. A row whose value is empty is **not** rendered, so a fact that has not been confirmed
+  yet simply does not appear on the page. A value may be a plain string, or an object with
+  per-language variants (`{ en: '...', ja: '...' }`), and may contain `\n` for line breaks.
+- `src/i18n.ts` — the row *labels* and the section copy, in all 16 languages.
+
 ## Media
 
 - `public/hero.mp4` — hero background loop (720p, audio stripped, `+faststart`), transcoded

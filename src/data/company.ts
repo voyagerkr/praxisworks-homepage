@@ -8,7 +8,6 @@
 //
 // TODO(praxisworks): 未確定の項目を埋めてください / 미확정 항목을 채워주세요
 //   founded  設立    e.g. { en: 'April 2025',        ja: '2025年4月' }
-//   rep      代表者  e.g. { en: 'Family Given',      ja: '姓 名' }
 //   capital  資本金  e.g. { en: 'JPY 10,000,000',    ja: '1,000万円' }
 //   address  所在地  e.g. { en: 'Floor, Building\n1-2-3 Street, Ward, City',
 //                           ja: '東京都◯◯区◯◯1-2-3\n◯◯ビル 4F' }
@@ -64,7 +63,7 @@ const BUSINESS: Localized = {
 export const COMPANY_ROWS: CompanyRow[] = [
   { key: 'name', value: 'PraxisWorks' },
   { key: 'founded', value: '' },
-  { key: 'rep', value: '' },
+  { key: 'rep', value: { en: 'Koji Tamura', ja: '田村浩二', 'zh-Hans': '田村浩二', 'zh-Hant': '田村浩二' } },
   { key: 'capital', value: '' },
   { key: 'address', value: '' },
   { key: 'business', value: BUSINESS },

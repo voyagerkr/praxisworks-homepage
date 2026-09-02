@@ -848,6 +848,63 @@ select:focus-visible {
   transform: none;
 }
 
+/* ---------- company profile ---------- */
+.company {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) clamp(16px, 5vw, 72px);
+}
+.co-table {
+  margin: 0;
+  max-width: 900px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(17, 23, 34, 0.62), rgba(10, 14, 22, 0.62));
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+.co-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 200px) 1fr;
+  gap: clamp(12px, 3vw, 28px);
+  padding: clamp(15px, 2.2vw, 20px) clamp(18px, 3.4vw, 32px);
+  border-top: 1px solid var(--line);
+  transition: background 0.2s ease;
+}
+.co-row:first-child {
+  border-top: 0;
+}
+.co-row:hover {
+  background: rgba(255, 255, 255, 0.025);
+}
+.co-label {
+  margin: 0;
+  padding-top: 3px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+.co-value {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  /* addresses and multi-line facts keep their line breaks */
+  white-space: pre-line;
+}
+.co-value a {
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.co-value a:hover {
+  border-bottom-color: currentColor;
+}
+
 /* ---------- contact ---------- */
 .cta {
   max-width: 1380px;
@@ -966,6 +1023,13 @@ select:focus-visible {
   }
   .hero {
     padding-bottom: 12vh;
+  }
+  .co-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .co-label {
+    padding-top: 0;
   }
 }
 

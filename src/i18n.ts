@@ -37,9 +37,22 @@ export const LANGS: { code: Lang; label: string; dir?: 'rtl' }[] = [
   { code: 'tr', label: 'Türkçe' },
 ]
 
+/** Row labels for the 会社概要 / company-profile table (values live in `data/company.ts`). */
+export type CompanyLabels = {
+  name: string
+  founded: string
+  rep: string
+  capital: string
+  address: string
+  business: string
+  contact: string
+  website: string
+}
+
 export type Strings = {
   navWork: string
   navAI: string
+  navCompany: string
   navContact: string
   navSource: string
   kicker: string
@@ -55,6 +68,10 @@ export type Strings = {
   aiHead: string
   aiSub: string
   aiBrowse: string
+  companyKicker: string
+  companyHead: string
+  companySub: string
+  co: CompanyLabels
   contactKicker: string
   contactHead: string
   contactSub: string
@@ -67,6 +84,7 @@ export const dict: Record<Lang, Strings> = {
   en: {
     navWork: 'Work',
     navAI: 'AI',
+    navCompany: 'Company',
     navContact: 'Contact',
     navSource: 'Source',
     kicker: 'DEVELOPMENT STUDIO',
@@ -82,6 +100,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'We also build AI products',
     aiSub: 'From AI agents to LLM features — production AI, shipped. This is the agent landscape we build in:',
     aiBrowse: 'Browse the agent atlas — {n} projects',
+    companyKicker: 'COMPANY',
+    companyHead: 'Company profile',
+    companySub: 'The formal details behind the studio — who we are, where we are, and what we do.',
+    co: {
+      name: 'Company name',
+      founded: 'Founded',
+      rep: 'Representative',
+      capital: 'Capital',
+      address: 'Address',
+      business: 'Business',
+      contact: 'Contact',
+      website: 'Website',
+    },
     contactKicker: 'CONTACT',
     contactHead: 'Start a project.',
     contactSub: 'Need an outsourced team to design and ship your product — including the AI inside it? Tell us what you’re building.',
@@ -92,6 +123,7 @@ export const dict: Record<Lang, Strings> = {
   ko: {
     navWork: '작업',
     navAI: 'AI',
+    navCompany: '회사',
     navContact: '문의',
     navSource: '소스',
     kicker: '개발 스튜디오',
@@ -107,6 +139,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'AI 제품도 만듭니다',
     aiSub: 'AI 에이전트부터 LLM 기능까지 — 실제로 출시한 프로덕션 AI. 우리가 일하는 에이전트 생태계입니다:',
     aiBrowse: '에이전트 아틀라스 둘러보기 — {n}개 프로젝트',
+    companyKicker: '회사 개요',
+    companyHead: '회사 개요',
+    companySub: '스튜디오의 공식 정보 — 우리가 누구이고, 어디에 있으며, 무엇을 하는지.',
+    co: {
+      name: '회사명',
+      founded: '설립',
+      rep: '대표자',
+      capital: '자본금',
+      address: '소재지',
+      business: '사업 내용',
+      contact: '연락처',
+      website: '웹사이트',
+    },
     contactKicker: '문의',
     contactHead: '프로젝트를 시작하세요.',
     contactSub: '제품을, 그 안의 AI까지 설계하고 출시할 외주 팀이 필요하신가요? 무엇을 만들고 계신지 알려주세요.',
@@ -117,6 +162,7 @@ export const dict: Record<Lang, Strings> = {
   ja: {
     navWork: '実績',
     navAI: 'AI',
+    navCompany: '会社概要',
     navContact: 'お問い合わせ',
     navSource: 'ソース',
     kicker: '開発スタジオ',
@@ -132,6 +178,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'AIプロダクトもつくります',
     aiSub: 'AIエージェントからLLM機能まで — 実運用に乗せたAIを。私たちが取り組むエージェントの領域です：',
     aiBrowse: 'エージェント・アトラスを見る — {n}件',
+    companyKicker: '会社概要',
+    companyHead: '会社概要',
+    companySub: 'スタジオの正式な情報 — 私たちが何者で、どこにあり、何を手がけているか。',
+    co: {
+      name: '会社名',
+      founded: '設立',
+      rep: '代表者',
+      capital: '資本金',
+      address: '所在地',
+      business: '事業内容',
+      contact: '連絡先',
+      website: 'ウェブサイト',
+    },
     contactKicker: 'お問い合わせ',
     contactHead: 'プロジェクトを始めましょう。',
     contactSub: '中のAIまで含めて、プロダクトを設計・リリースする外部チームをお探しですか？つくっているものを教えてください。',
@@ -142,6 +201,7 @@ export const dict: Record<Lang, Strings> = {
   'zh-Hans': {
     navWork: '作品',
     navAI: 'AI',
+    navCompany: '公司',
     navContact: '联系',
     navSource: '源码',
     kicker: '开发工作室',
@@ -157,6 +217,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: '我们也打造 AI 产品',
     aiSub: '从 AI 智能体到 LLM 功能——可投入生产的 AI，已交付。这是我们深耕的智能体领域：',
     aiBrowse: '浏览智能体图谱 — {n} 个项目',
+    companyKicker: '公司概要',
+    companyHead: '公司概要',
+    companySub: '工作室的正式信息 — 我们是谁、身在何处、做什么。',
+    co: {
+      name: '公司名称',
+      founded: '成立时间',
+      rep: '法定代表人',
+      capital: '注册资本',
+      address: '地址',
+      business: '业务内容',
+      contact: '联系方式',
+      website: '网站',
+    },
     contactKicker: '联系',
     contactHead: '启动你的项目。',
     contactSub: '需要一支外包团队来设计并交付你的产品——包括其中的 AI 吗？告诉我们你在做什么。',
@@ -167,6 +240,7 @@ export const dict: Record<Lang, Strings> = {
   'zh-Hant': {
     navWork: '作品',
     navAI: 'AI',
+    navCompany: '公司',
     navContact: '聯絡',
     navSource: '原始碼',
     kicker: '開發工作室',
@@ -182,6 +256,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: '我們也打造 AI 產品',
     aiSub: '從 AI 代理到 LLM 功能——可投入生產的 AI，已交付。這是我們深耕的代理領域：',
     aiBrowse: '瀏覽代理圖譜 — {n} 個專案',
+    companyKicker: '公司概要',
+    companyHead: '公司概要',
+    companySub: '工作室的正式資訊 — 我們是誰、身在何處、做什麼。',
+    co: {
+      name: '公司名稱',
+      founded: '成立時間',
+      rep: '代表人',
+      capital: '資本額',
+      address: '地址',
+      business: '業務內容',
+      contact: '聯絡方式',
+      website: '網站',
+    },
     contactKicker: '聯絡',
     contactHead: '啟動你的專案。',
     contactSub: '需要一支外包團隊來設計並交付你的產品——包括其中的 AI 嗎？告訴我們你在做什麼。',
@@ -192,6 +279,7 @@ export const dict: Record<Lang, Strings> = {
   es: {
     navWork: 'Trabajo',
     navAI: 'IA',
+    navCompany: 'Empresa',
     navContact: 'Contacto',
     navSource: 'Código',
     kicker: 'ESTUDIO DE DESARROLLO',
@@ -207,6 +295,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'También creamos productos de IA',
     aiSub: 'De agentes de IA a funciones con LLM: IA en producción, lanzada. Este es el terreno de agentes en el que trabajamos:',
     aiBrowse: 'Explorar el atlas de agentes — {n} proyectos',
+    companyKicker: 'EMPRESA',
+    companyHead: 'Perfil de la empresa',
+    companySub: 'Los datos formales del estudio: quiénes somos, dónde estamos y a qué nos dedicamos.',
+    co: {
+      name: 'Razón social',
+      founded: 'Fundación',
+      rep: 'Representante',
+      capital: 'Capital social',
+      address: 'Dirección',
+      business: 'Actividad',
+      contact: 'Contacto',
+      website: 'Sitio web',
+    },
     contactKicker: 'CONTACTO',
     contactHead: 'Inicia un proyecto.',
     contactSub: '¿Necesitas un equipo externo para diseñar y lanzar tu producto, incluida la IA que lleva dentro? Cuéntanos qué estás construyendo.',
@@ -217,6 +318,7 @@ export const dict: Record<Lang, Strings> = {
   fr: {
     navWork: 'Réalisations',
     navAI: 'IA',
+    navCompany: 'Société',
     navContact: 'Contact',
     navSource: 'Source',
     kicker: 'STUDIO DE DÉVELOPPEMENT',
@@ -232,6 +334,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'Nous créons aussi des produits IA',
     aiSub: 'Des agents IA aux fonctionnalités LLM — une IA en production, livrée. Voici le paysage d’agents dans lequel nous travaillons :',
     aiBrowse: 'Parcourir l’atlas des agents — {n} projets',
+    companyKicker: 'SOCIÉTÉ',
+    companyHead: 'Profil de la société',
+    companySub: 'Les informations officielles du studio : qui nous sommes, où nous sommes et ce que nous faisons.',
+    co: {
+      name: 'Raison sociale',
+      founded: 'Création',
+      rep: 'Représentant',
+      capital: 'Capital social',
+      address: 'Adresse',
+      business: 'Activité',
+      contact: 'Contact',
+      website: 'Site web',
+    },
     contactKicker: 'CONTACT',
     contactHead: 'Démarrez un projet.',
     contactSub: 'Besoin d’une équipe externe pour concevoir et livrer votre produit — y compris l’IA qu’il contient ? Dites-nous ce que vous construisez.',
@@ -242,6 +357,7 @@ export const dict: Record<Lang, Strings> = {
   de: {
     navWork: 'Arbeiten',
     navAI: 'KI',
+    navCompany: 'Unternehmen',
     navContact: 'Kontakt',
     navSource: 'Quelle',
     kicker: 'ENTWICKLUNGSSTUDIO',
@@ -257,6 +373,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'Wir bauen auch KI-Produkte',
     aiSub: 'Von KI-Agenten bis zu LLM-Funktionen — produktionsreife KI, ausgeliefert. Das ist die Agenten-Landschaft, in der wir arbeiten:',
     aiBrowse: 'Agenten-Atlas durchsuchen — {n} Projekte',
+    companyKicker: 'UNTERNEHMEN',
+    companyHead: 'Unternehmensprofil',
+    companySub: 'Die formalen Angaben zum Studio — wer wir sind, wo wir sind und was wir tun.',
+    co: {
+      name: 'Firmenname',
+      founded: 'Gegründet',
+      rep: 'Geschäftsführung',
+      capital: 'Stammkapital',
+      address: 'Anschrift',
+      business: 'Geschäftsfeld',
+      contact: 'Kontakt',
+      website: 'Website',
+    },
     contactKicker: 'KONTAKT',
     contactHead: 'Starte ein Projekt.',
     contactSub: 'Du brauchst ein externes Team, das dein Produkt gestaltet und ausliefert — inklusive der KI darin? Sag uns, was du baust.',
@@ -267,6 +396,7 @@ export const dict: Record<Lang, Strings> = {
   pt: {
     navWork: 'Trabalhos',
     navAI: 'IA',
+    navCompany: 'Empresa',
     navContact: 'Contato',
     navSource: 'Código',
     kicker: 'ESTÚDIO DE DESENVOLVIMENTO',
@@ -282,6 +412,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'Também criamos produtos de IA',
     aiSub: 'De agentes de IA a recursos com LLM — IA em produção, entregue. Este é o cenário de agentes em que trabalhamos:',
     aiBrowse: 'Explorar o atlas de agentes — {n} projetos',
+    companyKicker: 'EMPRESA',
+    companyHead: 'Perfil da empresa',
+    companySub: 'Os dados formais do estúdio — quem somos, onde estamos e o que fazemos.',
+    co: {
+      name: 'Razão social',
+      founded: 'Fundação',
+      rep: 'Representante',
+      capital: 'Capital social',
+      address: 'Endereço',
+      business: 'Atividade',
+      contact: 'Contato',
+      website: 'Site',
+    },
     contactKicker: 'CONTATO',
     contactHead: 'Inicie um projeto.',
     contactSub: 'Precisa de uma equipe terceirizada para projetar e lançar seu produto — incluindo a IA dentro dele? Conte o que você está construindo.',
@@ -292,6 +435,7 @@ export const dict: Record<Lang, Strings> = {
   it: {
     navWork: 'Lavori',
     navAI: 'IA',
+    navCompany: 'Azienda',
     navContact: 'Contatti',
     navSource: 'Sorgente',
     kicker: 'STUDIO DI SVILUPPO',
@@ -307,6 +451,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'Costruiamo anche prodotti IA',
     aiSub: 'Dagli agenti IA alle funzionalità LLM — IA in produzione, consegnata. Questo è il panorama di agenti in cui lavoriamo:',
     aiBrowse: 'Esplora l’atlante degli agenti — {n} progetti',
+    companyKicker: 'AZIENDA',
+    companyHead: 'Profilo aziendale',
+    companySub: 'I dati formali dello studio — chi siamo, dove siamo e di cosa ci occupiamo.',
+    co: {
+      name: 'Ragione sociale',
+      founded: 'Fondazione',
+      rep: 'Rappresentante',
+      capital: 'Capitale sociale',
+      address: 'Sede',
+      business: 'Attività',
+      contact: 'Contatti',
+      website: 'Sito web',
+    },
     contactKicker: 'CONTATTI',
     contactHead: 'Avvia un progetto.',
     contactSub: 'Ti serve un team esterno per progettare e pubblicare il tuo prodotto — inclusa l’IA al suo interno? Raccontaci cosa stai costruendo.',
@@ -317,6 +474,7 @@ export const dict: Record<Lang, Strings> = {
   ru: {
     navWork: 'Работы',
     navAI: 'ИИ',
+    navCompany: 'Компания',
     navContact: 'Контакты',
     navSource: 'Исходник',
     kicker: 'СТУДИЯ РАЗРАБОТКИ',
@@ -332,6 +490,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'Мы создаём и ИИ-продукты',
     aiSub: 'От ИИ-агентов до функций на LLM — продакшен-ИИ, выпущенный в релиз. Вот среда агентов, в которой мы работаем:',
     aiBrowse: 'Открыть атлас агентов — {n} проектов',
+    companyKicker: 'КОМПАНИЯ',
+    companyHead: 'О компании',
+    companySub: 'Официальные данные студии — кто мы, где находимся и чем занимаемся.',
+    co: {
+      name: 'Название',
+      founded: 'Основана',
+      rep: 'Руководитель',
+      capital: 'Уставный капитал',
+      address: 'Адрес',
+      business: 'Деятельность',
+      contact: 'Контакты',
+      website: 'Сайт',
+    },
     contactKicker: 'КОНТАКТЫ',
     contactHead: 'Начните проект.',
     contactSub: 'Нужна внешняя команда, чтобы спроектировать и выпустить ваш продукт — вместе с ИИ внутри? Расскажите, что вы создаёте.',
@@ -342,6 +513,7 @@ export const dict: Record<Lang, Strings> = {
   ar: {
     navWork: 'الأعمال',
     navAI: 'الذكاء الاصطناعي',
+    navCompany: 'الشركة',
     navContact: 'تواصل',
     navSource: 'الكود',
     kicker: 'استوديو تطوير',
@@ -357,6 +529,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'نبني منتجات ذكاء اصطناعي أيضًا',
     aiSub: 'من وكلاء الذكاء الاصطناعي إلى ميزات نماذج اللغة — ذكاء اصطناعي جاهز للإنتاج وتم إطلاقه. هذا هو مجال الوكلاء الذي نعمل فيه:',
     aiBrowse: 'تصفّح أطلس الوكلاء — {n} مشروعًا',
+    companyKicker: 'الشركة',
+    companyHead: 'نبذة عن الشركة',
+    companySub: 'المعلومات الرسمية للاستوديو — من نحن، وأين نحن، وماذا نعمل.',
+    co: {
+      name: 'اسم الشركة',
+      founded: 'تأسست',
+      rep: 'الممثل',
+      capital: 'رأس المال',
+      address: 'العنوان',
+      business: 'مجال العمل',
+      contact: 'التواصل',
+      website: 'الموقع',
+    },
     contactKicker: 'تواصل',
     contactHead: 'ابدأ مشروعك.',
     contactSub: 'هل تحتاج فريقًا خارجيًا لتصميم منتجك وإطلاقه — بما في ذلك الذكاء الاصطناعي داخله؟ أخبرنا بما تبنيه.',
@@ -367,6 +552,7 @@ export const dict: Record<Lang, Strings> = {
   hi: {
     navWork: 'काम',
     navAI: 'AI',
+    navCompany: 'कंपनी',
     navContact: 'संपर्क',
     navSource: 'सोर्स',
     kicker: 'डेवलपमेंट स्टूडियो',
@@ -382,6 +568,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'हम AI प्रोडक्ट भी बनाते हैं',
     aiSub: 'AI एजेंट्स से लेकर LLM फ़ीचर्स तक — प्रोडक्शन में लॉन्च किया गया AI। यह वह एजेंट लैंडस्केप है जिसमें हम काम करते हैं:',
     aiBrowse: 'एजेंट एटलस देखें — {n} प्रोजेक्ट',
+    companyKicker: 'कंपनी',
+    companyHead: 'कंपनी प्रोफ़ाइल',
+    companySub: 'स्टूडियो की औपचारिक जानकारी — हम कौन हैं, कहाँ हैं और क्या करते हैं।',
+    co: {
+      name: 'कंपनी का नाम',
+      founded: 'स्थापना',
+      rep: 'प्रतिनिधि',
+      capital: 'पूंजी',
+      address: 'पता',
+      business: 'व्यवसाय',
+      contact: 'संपर्क',
+      website: 'वेबसाइट',
+    },
     contactKicker: 'संपर्क',
     contactHead: 'प्रोजेक्ट शुरू करें।',
     contactSub: 'अपना प्रोडक्ट — उसके अंदर के AI सहित — डिज़ाइन और लॉन्च करने के लिए आउटसोर्स टीम चाहिए? बताइए आप क्या बना रहे हैं।',
@@ -392,6 +591,7 @@ export const dict: Record<Lang, Strings> = {
   id: {
     navWork: 'Karya',
     navAI: 'AI',
+    navCompany: 'Perusahaan',
     navContact: 'Kontak',
     navSource: 'Sumber',
     kicker: 'STUDIO PENGEMBANGAN',
@@ -407,6 +607,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'Kami juga membangun produk AI',
     aiSub: 'Dari agen AI hingga fitur LLM — AI siap produksi, sudah dirilis. Inilah lanskap agen tempat kami bekerja:',
     aiBrowse: 'Jelajahi atlas agen — {n} proyek',
+    companyKicker: 'PERUSAHAAN',
+    companyHead: 'Profil perusahaan',
+    companySub: 'Informasi resmi studio — siapa kami, di mana kami, dan apa yang kami kerjakan.',
+    co: {
+      name: 'Nama perusahaan',
+      founded: 'Didirikan',
+      rep: 'Perwakilan',
+      capital: 'Modal',
+      address: 'Alamat',
+      business: 'Bidang usaha',
+      contact: 'Kontak',
+      website: 'Situs web',
+    },
     contactKicker: 'KONTAK',
     contactHead: 'Mulai sebuah proyek.',
     contactSub: 'Butuh tim alih daya untuk merancang dan merilis produk Anda — termasuk AI di dalamnya? Ceritakan apa yang sedang Anda bangun.',
@@ -417,6 +630,7 @@ export const dict: Record<Lang, Strings> = {
   vi: {
     navWork: 'Dự án',
     navAI: 'AI',
+    navCompany: 'Công ty',
     navContact: 'Liên hệ',
     navSource: 'Mã nguồn',
     kicker: 'STUDIO PHÁT TRIỂN',
@@ -432,6 +646,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'Chúng tôi cũng xây dựng sản phẩm AI',
     aiSub: 'Từ AI agent đến tính năng LLM — AI vận hành thực tế, đã phát hành. Đây là hệ sinh thái agent mà chúng tôi làm việc:',
     aiBrowse: 'Khám phá atlas agent — {n} dự án',
+    companyKicker: 'CÔNG TY',
+    companyHead: 'Hồ sơ công ty',
+    companySub: 'Thông tin chính thức của studio — chúng tôi là ai, ở đâu và làm gì.',
+    co: {
+      name: 'Tên công ty',
+      founded: 'Thành lập',
+      rep: 'Người đại diện',
+      capital: 'Vốn điều lệ',
+      address: 'Địa chỉ',
+      business: 'Lĩnh vực',
+      contact: 'Liên hệ',
+      website: 'Website',
+    },
     contactKicker: 'LIÊN HỆ',
     contactHead: 'Bắt đầu một dự án.',
     contactSub: 'Cần một đội thuê ngoài để thiết kế và phát hành sản phẩm của bạn — bao gồm cả AI bên trong? Hãy cho chúng tôi biết bạn đang xây dựng gì.',
@@ -442,6 +669,7 @@ export const dict: Record<Lang, Strings> = {
   tr: {
     navWork: 'İşler',
     navAI: 'YZ',
+    navCompany: 'Şirket',
     navContact: 'İletişim',
     navSource: 'Kaynak',
     kicker: 'GELİŞTİRME STÜDYOSU',
@@ -457,6 +685,19 @@ export const dict: Record<Lang, Strings> = {
     aiHead: 'Yapay zekâ ürünleri de geliştiriyoruz',
     aiSub: 'YZ ajanlarından LLM özelliklerine — yayına alınmış, üretim düzeyinde yapay zekâ. Çalıştığımız ajan dünyası şu şekilde:',
     aiBrowse: 'Ajan atlasına göz atın — {n} proje',
+    companyKicker: 'ŞİRKET',
+    companyHead: 'Şirket profili',
+    companySub: 'Stüdyonun resmî bilgileri — kim olduğumuz, nerede olduğumuz ve ne yaptığımız.',
+    co: {
+      name: 'Şirket adı',
+      founded: 'Kuruluş',
+      rep: 'Temsilci',
+      capital: 'Sermaye',
+      address: 'Adres',
+      business: 'Faaliyet alanı',
+      contact: 'İletişim',
+      website: 'Web sitesi',
+    },
     contactKicker: 'İLETİŞİM',
     contactHead: 'Bir projeye başlayın.',
     contactSub: 'Ürününüzü — içindeki yapay zekâ dahil — tasarlayıp yayına alacak bir dış kaynak ekibe mi ihtiyacınız var? Ne geliştirdiğinizi anlatın.',

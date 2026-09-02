@@ -2,13 +2,15 @@ import { useEffect, useRef, useState } from 'react'
 import './App.css'
 import type { AgentProject, Framework } from './types'
 import agentsData from './data/agents.json'
-import { LANGS, dict, type Lang } from './i18n'
+import { LANGS, dict, type Lang, type Strings } from './i18n'
+import { COMPANY_EMAIL, COMPANY_ROWS, localize, organizationJsonLd } from './data/company'
 
 const agents = agentsData as unknown as AgentProject[]
 const FRAMEWORKS: Framework[] = ['CrewAI', 'AutoGen', 'Agno', 'LangGraph']
 const UPSTREAM = 'https://github.com/ashishpatel26/500-AI-Agents-Projects'
-const CONTACT = 'koji@praxisworks.dev'
+const CONTACT = COMPANY_EMAIL
 const TOTAL = agents.length
+const ORG_LD = organizationJsonLd()
 
 // Portfolio. Re:IW blurb is a placeholder pending detail; its thumb stays a monogram.
 type Project = { title: string; mono: string; kind: string; blurb: string; tags: string[]; href?: string; image?: string }
@@ -221,6 +223,43 @@ function AgentCard({ agent, index }: { agent: AgentProject; index: number }) {
   )
 }
 
+// 会社概要 — the formal company profile. Rows come from `data/company.ts`; a
+// fact that has not been filled in yet has an empty value and is left out.
+function CompanyProfile({ t, lang }: { t: Strings; lang: Lang }) {
+  const rows = COMPANY_ROWS.map((row) => ({ ...row, text: localize(row.value, lang) })).filter((row) => row.text)
+  return (
+    <section className="company" id="company">
+      <div className="section-head reveal">
+        <p className="eyebrow">{t.companyKicker}</p>
+        <h2>{t.companyHead}</h2>
+        <p className="section-sub">{t.companySub}</p>
+      </div>
+      <dl className="co-table reveal">
+        {rows.map((row) => (
+          <div className="co-row" key={row.key}>
+            <dt className="co-label">{t.co[row.key]}</dt>
+            <dd className="co-value">
+              {row.href ? (
+                <a
+                  href={row.href}
+                  dir="ltr"
+                  target={row.href.startsWith('http') ? '_blank' : undefined}
+                  rel={row.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                >
+                  {row.text}
+                </a>
+              ) : (
+                row.text
+              )}
+            </dd>
+          </div>
+        ))}
+      </dl>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: ORG_LD }} />
+    </section>
+  )
+}
+
 function App() {
   const heroRef = useRef<HTMLElement>(null)
   const [lang, setLang] = useState<Lang>(() => {
@@ -284,6 +323,7 @@ function App() {
           <nav className="nav-links" aria-label="Primary">
             <a href="#work">{t.navWork}</a>
             <a href="#ai">{t.navAI}</a>
+            <a href="#company">{t.navCompany}</a>
             <a href="#contact">{t.navContact}</a>
             <a href={UPSTREAM} target="_blank" rel="noopener noreferrer">
               {t.navSource} ↗
@@ -387,6 +427,8 @@ function App() {
           </a>
         </div>
       </section>
+
+      <CompanyProfile t={t} lang={lang} />
 
       <section className="cta" id="contact">
         <div className="cta-panel reveal">

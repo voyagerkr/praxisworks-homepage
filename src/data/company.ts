@@ -2,16 +2,15 @@
 // 会社概要 / Company profile — the single source of truth for the #company
 // section (and for the Organization structured data).
 //
-// These are registry facts, not marketing copy, so nothing here is invented:
-// a row whose value is empty is simply NOT rendered. Fill a value in and its
-// row appears — no other file needs to change.
+// These are registry facts transcribed from the company's 사업자등록증 (Korean
+// business registration certificate), not marketing copy, so nothing here is
+// invented: a row whose value is empty is simply NOT rendered.
 //
-// TODO(praxisworks): 未確定の項目を埋めてください / 미확정 항목을 채워주세요
-//   founded  設立    e.g. { en: 'April 2025',        ja: '2025年4月' }
-//   capital  資本金  e.g. { en: 'JPY 10,000,000',    ja: '1,000万円' }
-//   address  所在地  e.g. { en: 'Floor, Building\n1-2-3 Street, Ward, City',
-//                           ja: '東京都◯◯区◯◯1-2-3\n◯◯ビル 4F' }
-//   `name` also takes the legal form once fixed, e.g. { ja: '株式会社PraxisWorks' }.
+// Deliberately NOT published: the 법인등록번호 (corporate registration number).
+// It is quasi-identifying, Korean companies do not normally put it on a public
+// page, and no counterparty needs it from a website — hand it over directly if
+// one asks. The 사업자등록번호 below is the number that belongs in public.
+//
 // A value may contain "\n" — line breaks are preserved when rendered.
 // ─────────────────────────────────────────────────────────────────────────────
 import type { CompanyLabels, Lang } from '../i18n'
@@ -30,6 +29,10 @@ export function localize(value: Localized, lang: Lang): string {
 }
 
 export const COMPANY_EMAIL = 'koji@praxisworks.dev'
+/** 사업자등록번호 — the public business registration number. */
+const BIZ_NO = '846-87-03684'
+/** The `founded` row above, in the ISO form schema.org wants. */
+const FOUNDED_ISO = '2026-06-01'
 export const COMPANY_SITE = 'https://praxisworks.dev/'
 
 export type CompanyRow = {
@@ -61,11 +64,22 @@ const BUSINESS: Localized = {
 
 /** Display order of the profile table. Empty values are skipped at render. */
 export const COMPANY_ROWS: CompanyRow[] = [
-  { key: 'name', value: 'PraxisWorks' },
-  { key: 'founded', value: '' },
+  { key: 'name', value: { en: 'Praxis Works.Inc.', ko: '주식회사 프락시스웍스 (Praxis Works.Inc.)' } },
+  {
+    key: 'founded',
+    value: { en: 'June 1, 2026', ko: '2026년 6월 1일', ja: '2026年6月1日', 'zh-Hans': '2026年6月1日', 'zh-Hant': '2026年6月1日' },
+  },
   { key: 'rep', value: { en: 'Koji Tamura', ja: '田村浩二', 'zh-Hans': '田村浩二', 'zh-Hant': '田村浩二' } },
-  { key: 'capital', value: '' },
-  { key: 'address', value: '' },
+  { key: 'capital', value: { en: 'KRW 1,000,000', ko: '1,000,000원', ja: '1,000,000ウォン' } },
+  { key: 'bizNo', value: BIZ_NO },
+  {
+    key: 'address',
+    value: {
+      en: '5F, Units 520–524, Gasan Urban Work\n135 Gasan digital 2-ro, Geumcheon-gu, Seoul, Republic of Korea',
+      ko: '서울특별시 금천구 가산디지털2로 135, 5층 520,521,522,523,524호\n(가산동, 가산 어반워크)',
+      ja: '大韓民国 ソウル特別市 衿川区 加山デジタル2路135\nカサン・アーバンワーク 5階 520〜524号',
+    },
+  },
   { key: 'business', value: BUSINESS },
   { key: 'contact', value: COMPANY_EMAIL, href: `mailto:${COMPANY_EMAIL}` },
   { key: 'website', value: 'praxisworks.dev', href: COMPANY_SITE },
@@ -90,6 +104,14 @@ export function organizationJsonLd(): string {
     description: fact('business'),
   }
   const address = fact('address')
-  if (address) ld.address = { '@type': 'PostalAddress', streetAddress: address.replace(/\n/g, ', ') }
+  if (address) {
+    ld.address = {
+      '@type': 'PostalAddress',
+      streetAddress: address.replace(/\n/g, ', '),
+      addressCountry: 'KR',
+    }
+  }
+  ld.foundingDate = FOUNDED_ISO
+  ld.taxID = BIZ_NO
   return JSON.stringify(ld)
 }

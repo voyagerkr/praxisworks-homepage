@@ -6,10 +6,10 @@
 // business registration certificate), not marketing copy, so nothing here is
 // invented: a row whose value is empty is simply NOT rendered.
 //
-// Deliberately NOT published: the 법인등록번호 (corporate registration number).
-// It is quasi-identifying, Korean companies do not normally put it on a public
-// page, and no counterparty needs it from a website — hand it over directly if
-// one asks. The 사업자등록번호 below is the number that belongs in public.
+// Both registration numbers are published here at the owner's direction, so the
+// overseas bank can verify the company straight from the site. Korean companies
+// often publish only the 사업자등록번호; the 법인등록번호 is on the public
+// 등기부등본 anyone can order, so this exposes nothing that is not obtainable.
 //
 // A value may contain "\n" — line breaks are preserved when rendered.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -31,6 +31,8 @@ export function localize(value: Localized, lang: Lang): string {
 export const COMPANY_EMAIL = 'koji@praxisworks.dev'
 /** 사업자등록번호 — the public business registration number. */
 const BIZ_NO = '846-87-03684'
+/** 법인등록번호 — the corporate registration number. */
+const CORP_NO = '110111-0960724'
 /** The `founded` row above, in the ISO form schema.org wants. */
 const FOUNDED_ISO = '2026-06-01'
 export const COMPANY_SITE = 'https://praxisworks.dev/'
@@ -72,6 +74,7 @@ export const COMPANY_ROWS: CompanyRow[] = [
   { key: 'rep', value: { en: 'Koji Tamura', ja: '田村浩二', 'zh-Hans': '田村浩二', 'zh-Hant': '田村浩二' } },
   { key: 'capital', value: { en: 'KRW 1,000,000', ko: '1,000,000원', ja: '1,000,000ウォン' } },
   { key: 'bizNo', value: BIZ_NO },
+  { key: 'corpNo', value: CORP_NO },
   {
     key: 'address',
     value: {

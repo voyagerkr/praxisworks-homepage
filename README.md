@@ -45,8 +45,8 @@ The 会社概要 / company-profile section (`#company`) is data-driven, so the f
 exactly one place:
 
 - `src/data/company.ts` — the factual rows (company name, founded, representative, capital,
-  address, business, contact, website) plus the schema.org `Organization` markup built from
-  them. A row whose value is empty is **not** rendered, so a fact that has not been confirmed
+  registration numbers, address, business, contact, website) plus the schema.org `Organization`
+  markup built from them. A row whose value is empty is **not** rendered, so a fact that has not been confirmed
   yet simply does not appear on the page. A value may be a plain string, or an object with
   per-language variants (`{ en: '...', ja: '...' }`), and may contain `\n` for line breaks.
 - `src/i18n.ts` — the row *labels* and the section copy, in all 16 languages.

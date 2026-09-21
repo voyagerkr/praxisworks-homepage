@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eterna 개인정보처리방침 — PraxisWorks</title>
+<style>
+  :root{
+    --ink:#1a1a1e; --ink-soft:#4a4a52; --ink-mute:#77777f;
+    --bg:#ffffff; --panel:#f6f5f2; --line:#e5e3dd; --accent:#5b4bd6;
+    --warn-bg:#fbf1e4; --warn-line:#e6c58a; --warn-ink:#7a521a;
+    --max:44rem;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --ink:#e9e8ee; --ink-soft:#b7b6c0; --ink-mute:#88878f;
+      --bg:#161519; --panel:#1e1d22; --line:#2c2b31; --accent:#a79bf5;
+      --warn-bg:#2a2213; --warn-line:#5c4a22; --warn-ink:#e6c58a; }
+  }
+  :root[data-theme="dark"]{ --ink:#e9e8ee; --ink-soft:#b7b6c0; --ink-mute:#88878f;
+    --bg:#161519; --panel:#1e1d22; --line:#2c2b31; --accent:#a79bf5;
+    --warn-bg:#2a2213; --warn-line:#5c4a22; --warn-ink:#e6c58a; }
+  :root[data-theme="light"]{ --ink:#1a1a1e; --ink-soft:#4a4a52; --ink-mute:#77777f;
+    --bg:#ffffff; --panel:#f6f5f2; --line:#e5e3dd; --accent:#5b4bd6;
+    --warn-bg:#fbf1e4; --warn-line:#e6c58a; --warn-ink:#7a521a; }
+  *{box-sizing:border-box;}
+  body,.wrap{background:var(--bg);}
+  .wrap{color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+    line-height:1.75; max-width:var(--max); margin:0 auto; padding:3.5rem 1.5rem 5rem; font-size:16px;
+    -webkit-font-smoothing:antialiased; word-break:keep-all;}
+  .eyebrow{font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:600; margin:0 0 .6rem;}
+  h1{font-size:1.9rem; line-height:1.25; font-weight:650; margin:0 0 .4rem; letter-spacing:-.01em; text-wrap:balance;}
+  .meta{color:var(--ink-mute); font-size:.9rem; margin:0 0 2rem;}
+  h2{font-size:1.18rem; font-weight:620; margin:2.6rem 0 .7rem; letter-spacing:-.01em; padding-top:1.2rem; border-top:1px solid var(--line);}
+  h3{font-size:1rem; font-weight:600; margin:1.4rem 0 .4rem;}
+  p{margin:.5rem 0;} strong{font-weight:620;}
+  ul{margin:.5rem 0 .9rem; padding-left:1.2rem;} li{margin:.28rem 0;}
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent);}
+  .draft{background:var(--warn-bg); border:1px solid var(--warn-line); color:var(--warn-ink);
+    border-radius:12px; padding:1rem 1.2rem; font-size:.92rem; margin:0 0 2.2rem;}
+  .draft strong{color:var(--warn-ink);}
+  .fill{color:var(--accent); font-weight:600; background:color-mix(in srgb,var(--accent) 12%,transparent);
+    padding:.05em .4em; border-radius:5px;}
+  .tablewrap{overflow-x:auto; margin:.8rem 0 1rem; border:1px solid var(--line); border-radius:12px;}
+  table{border-collapse:collapse; width:100%; font-size:.9rem; min-width:34rem;}
+  th,td{text-align:left; padding:.62rem .8rem; border-bottom:1px solid var(--line); vertical-align:top;}
+  th{background:var(--panel); font-weight:600; color:var(--ink-soft); white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  td:first-child{white-space:nowrap; font-weight:550;}
+  .foot{margin-top:3rem; padding-top:1.4rem; border-top:1px solid var(--line); color:var(--ink-mute); font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">PraxisWorks Inc.</p>
+  <h1>Eterna 개인정보처리방침</h1>
+  <p class="meta">시행일(안) 2026년 7월 12일 · 버전 1.0 초안</p>
+
+  <div class="draft">
+    <strong>초안 안내.</strong> 본 문서는 Eterna 클라이언트·서버 코드 실측을 바탕으로 작성한 초안이며,
+    법률 검토 전입니다. 사업자 등록정보·연락처 등 <span class="fill">[ 확인 ]</span> 표시 항목과 국외이전
+    수탁사 목록·보유기간은 공개 전 반드시 확정·검토되어야 합니다.
+  </div>
+
+  <p>PraxisWorks Inc.(이하 “회사”)는 AI 아바타 컴패니언 서비스 <strong>Eterna</strong>(이하 “서비스”)를 제공하며,
+  「개인정보 보호법」 등 관련 법령을 준수하여 이용자의 개인정보를 보호합니다. 본 방침은 회사가 어떤 정보를 어떤 목적으로
+  수집·이용하며, 어디로 이전하고, 이용자가 어떤 권리를 갖는지 설명합니다.</p>
+
+  <h2>1. 수집하는 개인정보 항목과 목적</h2>
+  <p>서비스는 다음 정보를 수집합니다. <strong>필수</strong> 항목은 서비스 이용에 반드시 필요하며,
+  <strong>선택</strong> 항목은 동의하지 않아도 해당 기능을 제외한 서비스 이용이 가능합니다.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>항목</th><th>구분</th><th>이용 목적</th></tr></thead>
+    <tbody>
+      <tr><td>이메일 주소</td><td>필수</td><td>계정 식별·인증, 안내 메일 발송 (Google 로그인 시 제공, Steam·Line 로그인은 미수집)</td></tr>
+      <tr><td>소셜 계정 식별자<br>(Google·Apple·Line·Steam ID)</td><td>필수</td><td>소셜 로그인 계정 매핑·인증</td></tr>
+      <tr><td>이름·닉네임</td><td>필수</td><td>계정 표시, 소셜 상호작용 시 다른 이용자에게 노출</td></tr>
+      <tr><td>생년월일</td><td>필수</td><td>연령 확인(만 14세 미만 가입 차단)</td></tr>
+      <tr><td>기기 식별자</td><td>필수</td><td>중복 로그인 방지·기기 식별 (교차 앱 광고 식별자가 아니며 재설정 가능)</td></tr>
+      <tr><td>AI 대화 내용</td><td>필수</td><td>AI(미러) 응답 생성 및 이용자 맞춤 성향 형성</td></tr>
+      <tr><td>구매·결제 내역</td><td>필수</td><td>인앱 구매 처리 및 영수증 검증 (카드·계좌 정보는 앱스토어가 처리하며 회사는 취급하지 않음)</td></tr>
+      <tr><td>이용자 간 채팅·사진</td><td>선택</td><td>1:1·그룹·아고라 메시징 및 사진 전송</td></tr>
+      <tr><td>프로필 사진</td><td>선택</td><td>프로필 표시(다른 이용자에게 노출)</td></tr>
+      <tr><td>위치정보(위·경도)</td><td>선택</td><td>게임 내 날씨를 현지 실날씨와 동기화 (미허용 시 기본 도시로 대체)</td></tr>
+      <tr><td>푸시 토큰(FCM)</td><td>선택</td><td>알림 및 오프라인 메시지 전송(알림 권한 동의 시)</td></tr>
+      <tr><td>서비스 이용·진단 정보</td><td>선택</td><td>이용 통계 분석 및 서비스 품질 개선</td></tr>
+    </tbody>
+  </table></div>
+  <p>음성 입력은 이용자 기기에서 텍스트로 변환되며, 변환된 텍스트만 전송됩니다(원본 음성은 회사·제3자로 업로드되지 않습니다).
+  운영체제(Android·iOS)의 음성 인식 기능을 사용하는 경우 해당 음성은 각 OS 제공사의 정책에 따라 처리될 수 있습니다.
+  본 서비스는 <strong>광고를 게재하지 않으며 광고 식별자를 광고 목적으로 사용하지 않습니다.</strong></p>
+
+  <h2>2. 개인정보의 국외 이전</h2>
+  <p>서비스의 핵심 기능(AI 대화, 소셜 메시징, 인증·분석)을 제공하기 위해, 아래와 같이 개인정보가 국외로 이전됩니다.
+  이용자는 회원가입 시 아래 국외 이전에 동의하게 됩니다.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>이전받는 자</th><th>국가</th><th>이전 항목</th><th>이전 목적</th></tr></thead>
+    <tbody>
+      <tr><td>OpenAI, L.L.C.</td><td>미국</td><td>AI 대화 내용, 대화 요약·성향, 음성 변환 텍스트</td><td>AI 응답 생성</td></tr>
+      <tr><td>Google LLC (Firebase)</td><td>미국</td><td>소셜 인증 식별자, 이용·진단 정보</td><td>로그인 인증, 이용 통계 분석, 푸시 발송</td></tr>
+      <tr><td>Amazon Web Services, Inc.</td><td>미국</td><td>이메일 주소</td><td>안내·인증 메일 발송</td></tr>
+      <tr><td>Tencent Cloud<br>(데이터 처리: 싱가포르 리전)</td><td>싱가포르<br>(운영: 중국 소재 기업)</td><td>이용자 간 채팅 메시지·사진, 푸시 토큰</td><td>실시간 메시징·오프라인 알림 전송</td></tr>
+      <tr><td>Apple Inc. / Google LLC</td><td>미국</td><td>구매 영수증</td><td>인앱 결제 영수증 검증</td></tr>
+    </tbody>
+  </table></div>
+  <p class="meta" style="margin-top:.4rem;">※ 각 수탁사의 정확한 상호·주소·이전 일시·보유기간·이전 방법은 공개 전 <span class="fill">[ 확인 ]</span> 후 확정합니다.
+  이용자는 국외 이전 동의를 거부할 수 있으나, 이 경우 해당 기능(AI 대화·소셜 등) 이용이 제한될 수 있습니다.</p>
+
+  <h2>3. 개인정보의 처리 위탁</h2>
+  <p>회사는 원활한 서비스 제공을 위해 위 제2항의 사업자에게 개인정보 처리 업무를 위탁하고 있으며, 위탁계약 시 관련 법령에 따라
+  개인정보가 안전하게 관리되도록 규정하고 이를 감독합니다. 회사는 <strong>이용자의 개인정보를 광고·마케팅 목적으로 제3자에게 판매하지 않습니다.</strong></p>
+
+  <h2>4. 보유 및 이용 기간</h2>
+  <ul>
+    <li>회원 개인정보: 회원 탈퇴 시까지. 탈퇴 시 지체 없이 파기하되, 관계 법령에서 정한 기간(예: 전자상거래법상 결제·거래 기록 등)은 해당 기간 동안 보관합니다. <span class="fill">[ 보존 기간 확정 ]</span></li>
+    <li>AI 대화 기록: 서비스 제공 목적 달성 시 또는 이용자의 삭제 요청 시까지.</li>
+    <li>이용자 간 메시지: 메시징 제공사(Tencent)의 보존 정책에 따릅니다.</li>
+  </ul>
+
+  <h2>5. 이용자의 권리와 행사 방법</h2>
+  <p>이용자는 언제든지 다음 권리를 행사할 수 있습니다.</p>
+  <ul>
+    <li>개인정보 <strong>열람·정정</strong> 요구</li>
+    <li>개인정보 <strong>삭제</strong> 및 <strong>처리 정지</strong> 요구</li>
+    <li><strong>회원 탈퇴</strong> 및 동의 철회</li>
+  </ul>
+  <p>앱 내 설정에서 계정 탈퇴·대화 삭제를 요청하거나, 아래 문의처로 연락하여 권리를 행사할 수 있습니다.
+  회사는 요청을 확인 후 관련 법령에 따라 처리합니다. <span class="fill">[ 국외 이전분(OpenAI·Tencent 등) 삭제 연동 범위 확정 ]</span></p>
+
+  <h2>6. 만 14세 미만 아동</h2>
+  <p>서비스는 <strong>만 14세 미만 아동의 가입을 허용하지 않습니다.</strong> 가입 시 생년월일로 연령을 확인하며,
+  만 14세 미만으로 확인되는 경우 가입이 차단됩니다.</p>
+
+  <h2>7. 개인정보의 안전성 확보 조치</h2>
+  <p>회사는 개인정보 보호를 위해 전송 구간 암호화(HTTPS/TLS), 접근 권한 통제, 비밀번호 등 민감정보의 암호화 저장 등의 조치를
+  적용합니다. <span class="fill">[ 전 통신 구간 TLS 적용 및 저장 암호화 범위 최종 점검 ]</span></p>
+
+  <h2>8. 개인정보 보호책임자 및 문의처</h2>
+  <p>개인정보 처리에 관한 문의·불만·피해 구제는 아래로 접수할 수 있습니다.</p>
+  <ul>
+    <li>상호: PraxisWorks Inc.</li>
+    <li>개인정보 보호책임자: <span class="fill">[ 성명·직책 확인 ]</span></li>
+    <li>이메일: <span class="fill">[ privacy@praxisworks… 확인 ]</span></li>
+    <li>주소·사업자등록번호: <span class="fill">[ 확인 ]</span></li>
+  </ul>
+
+  <h2>9. 방침의 변경</h2>
+  <p>본 방침의 내용 추가·삭제·수정이 있을 경우, 시행 최소 7일 전에 앱 내 공지 또는 본 페이지를 통해 고지합니다.
+  중대한 변경(수집 항목·이용 목적·국외 이전의 실질적 변경 등)은 이용자의 재동의를 받습니다.</p>
+
+  <p class="foot">© 2026 PraxisWorks Inc. · Eterna 개인정보처리방침 v1.0 (초안, 법률 검토 전) · 한국어 정본.
+  日本語版은 별도 제공됩니다.</p>
+</div>
+
+</body>
+</html>
